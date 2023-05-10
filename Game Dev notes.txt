@@ -1,0 +1,10 @@
+Game Dev notes:
+
+Lets do this
+For every time we find a hold note, tell it to hit
+then when it hits, it'll hold itself in place and then as that happens
+the middle pieces all fly by. 
+then when the end comes
+that'll have a judgement and we'll check the hit on that
+when it happens on the release, queue_free the entire note. 
+so we'll pacakge everything into one node later. 

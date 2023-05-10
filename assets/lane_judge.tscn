@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://dan5a8knvkhrm"]
+
+[ext_resource type="Script" path="res://scripts/lane_judge.gd" id="1_0bfsi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bj1iv"]
+size = Vector3(1.93622, 0.774178, 0.337055)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpq27"]
+size = Vector3(1.92441, 0.767838, 0.787798)
+
+[node name="LaneJudge" type="Node3D"]
+script = ExtResource("1_0bfsi")
+
+[node name="LaneMiss" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, -2.18855)
+
+[node name="LaneHitbox2" type="CollisionShape3D" parent="LaneMiss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, 2.99252)
+shape = SubResource("BoxShape3D_bj1iv")
+
+[node name="LaneGood" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, 1.50401)
+
+[node name="LaneHitbox" type="CollisionShape3D" parent="LaneGood"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -2.85753)
+shape = SubResource("BoxShape3D_bj1iv")
+
+[node name="LaneHitbox2" type="CollisionShape3D" parent="LaneGood"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -1.04222)
+shape = SubResource("BoxShape3D_bj1iv")
+
+[node name="LaneGreat" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, 1.50401)
+
+[node name="LaneHitbox" type="CollisionShape3D" parent="LaneGreat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -2.50729)
+shape = SubResource("BoxShape3D_bj1iv")
+
+[node name="LaneHitbox2" type="CollisionShape3D" parent="LaneGreat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -1.38084)
+shape = SubResource("BoxShape3D_bj1iv")
+
+[node name="LanePerfect" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, -0.793024)
+
+[node name="LaneHitbox" type="CollisionShape3D" parent="LanePerfect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.932505, 0, 0.34813)
+shape = SubResource("BoxShape3D_kpq27")
+
+[connection signal="body_entered" from="LaneMiss" to="." method="_on_lane_miss_body_entered"]
+[connection signal="body_entered" from="LaneGood" to="." method="_on_lane_good_body_entered"]
+[connection signal="body_entered" from="LaneGreat" to="." method="_on_lane_great_body_entered"]
+[connection signal="body_entered" from="LanePerfect" to="." method="_on_lane_perfect_body_entered"]
