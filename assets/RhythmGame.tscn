@@ -34,7 +34,7 @@ albedo_texture = ExtResource("3_seyps")
 script = ExtResource("4_m0ims")
 
 [node name="Note" parent="." instance=ExtResource("4_ndegh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.898911, 0, -19.3399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -19.5)
 
 [node name="Road" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 11, 0, 0, -8.12168)

@@ -1,5 +1,13 @@
 extends Node3D
 
+var lane1X = -2.95
+
+var lane2X = -0.9
+
+var lane3X = 1.05
+
+var lane4X = 3
+
 var lane1 = []
 var lane1_is_held = false
 
@@ -12,16 +20,42 @@ var lane3_is_held = false
 var lane4 = []
 var lane4_is_held = false
 
+var path = "res:/maps/"+"Awake Now"+"/"
+var song = "path" + "song.mp3"
+var map = "path" + "map.json"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var music_player = AudioStreamPlayer.new()
-	music_player.stream = load("res://resources/Awake Now.mp3")
+	music_player.stream = load(song)
 	add_child(music_player)
 	music_player.play()
-	lane2.push_front($Note)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	load_song()
+
+func load_song():
+	if not FileAccess.file_exists(map):
+		print("Error could not load map")
+		return 
+		
+	var load_file = FileAccess.open(map, FileAccess.READ)
+	var dict = JSON.parse_string(load_file.get_as_text())
+	print(dict)
+	
+	
+func save():
+	var dict = {}
+	dict["song_name"] = $/root/Global.map
+	
+	dict["lane1"] = [0,1,2,3,4]
+	dict["lane2"] = [0,1,2,3,4]
+	dict["lane3"] = [0,1,2,3,4]
+	dict["lane4"] = [0,1,2,3,4]
+	
+	var save_file = FileAccess.open(map, FileAccess.WRITE)
+	save_file.store_string(JSON.stringify(dict))
+	print(dict)
+	print("Saved")
+
 	
 func judge_lane(l):
 	var lane = []
