@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b3g6ka5bke5o5" path="res://resources/default.png" id="2_x2yj1"]
 [ext_resource type="Texture2D" uid="uid://07aiysk230jf" path="res://resources/hit-area.png" id="3_seyps"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="4_m0ims"]
-[ext_resource type="PackedScene" uid="uid://d15t00gwcn53r" path="res://assets/note.tscn" id="4_ndegh"]
 [ext_resource type="PackedScene" uid="uid://dan5a8knvkhrm" path="res://assets/lane_judge.tscn" id="6_hmagr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrqpv"]
@@ -30,11 +29,11 @@ albedo_texture = ExtResource("3_seyps")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0fgnh"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y28hd"]
+size = Vector3(1.79095, 1, 1)
+
 [node name="RhythmGame" type="Node3D"]
 script = ExtResource("4_m0ims")
-
-[node name="Note" parent="." instance=ExtResource("4_ndegh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -19.5)
 
 [node name="Road" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 11, 0, 0, -8.12168)
@@ -48,7 +47,7 @@ fov = 92.0
 size = 10.0
 
 [node name="Background" type="MeshInstance3D" parent="."]
-transform = Transform3D(41, 0, 0, 0, 22.8172, -15.0452, 0, 15.0452, 22.8172, 0.0749443, -16.1988, -4.80364)
+transform = Transform3D(42, 0, 0, 0, 23.3741, -15.4124, 0, 15.4124, 23.3741, 0.0749443, -16.1988, -4.80364)
 material_override = SubResource("StandardMaterial3D_y5i5g")
 gi_lightmap_scale = 3
 mesh = SubResource("PlaneMesh_sgfrx")
@@ -58,6 +57,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5806, -7.06237)
 light_energy = 16.0
 omni_range = 4096.0
 omni_shadow_mode = 0
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.339182, 0.940721, 0, -0.940721, 0.339182, 0, 17.9435, -0.510685)
+visible = false
+attributes = SubResource("CameraAttributesPractical_kphdp")
+fov = 92.0
+size = 10.0
 
 [node name="Judger" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.24265)
@@ -78,3 +84,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04882, 0, 0)
 
 [node name="LaneJudge4" parent="Judger" instance=ExtResource("6_hmagr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00168, 0, 0)
+
+[node name="Queuer" type="Node3D" parent="."]
+
+[node name="LaneQueue1" type="Area3D" parent="Queuer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95, 0, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Queuer/LaneQueue1"]
+shape = SubResource("BoxShape3D_y28hd")
+
+[node name="LaneQueue2" type="Area3D" parent="Queuer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Queuer/LaneQueue2"]
+shape = SubResource("BoxShape3D_y28hd")
+
+[node name="LaneQueue3" type="Area3D" parent="Queuer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, 0, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Queuer/LaneQueue3"]
+shape = SubResource("BoxShape3D_y28hd")
+
+[node name="LaneQueue4" type="Area3D" parent="Queuer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Queuer/LaneQueue4"]
+shape = SubResource("BoxShape3D_y28hd")
+
+[connection signal="body_entered" from="Queuer/LaneQueue1" to="." method="_on_lane_queue_1_body_entered"]
+[connection signal="body_entered" from="Queuer/LaneQueue2" to="." method="_on_lane_queue_2_body_entered"]
+[connection signal="body_entered" from="Queuer/LaneQueue3" to="." method="_on_lane_queue_3_body_entered"]
+[connection signal="body_entered" from="Queuer/LaneQueue4" to="." method="_on_lane_queue_4_body_entered"]
