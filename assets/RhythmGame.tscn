@@ -46,6 +46,13 @@ attributes = SubResource("CameraAttributesPractical_kphdp")
 fov = 92.0
 size = 10.0
 
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.339182, 0.940721, 0, -0.940721, 0.339182, 0, 17.9435, -0.510685)
+visible = false
+attributes = SubResource("CameraAttributesPractical_kphdp")
+fov = 92.0
+size = 10.0
+
 [node name="Background" type="MeshInstance3D" parent="."]
 transform = Transform3D(42, 0, 0, 0, 23.3741, -15.4124, 0, 15.4124, 23.3741, 0.0749443, -16.1988, -4.80364)
 material_override = SubResource("StandardMaterial3D_y5i5g")
@@ -57,13 +64,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5806, -7.06237)
 light_energy = 16.0
 omni_range = 4096.0
 omni_shadow_mode = 0
-
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.339182, 0.940721, 0, -0.940721, 0.339182, 0, 17.9435, -0.510685)
-visible = false
-attributes = SubResource("CameraAttributesPractical_kphdp")
-fov = 92.0
-size = 10.0
 
 [node name="Judger" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.24265)

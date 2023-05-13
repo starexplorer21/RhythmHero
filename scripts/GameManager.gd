@@ -24,7 +24,7 @@ var lane4 = []
 var lane4_is_held = false
 
 var path = "res://maps/"+Global.map+"/"
-var song = path + "song.mp3"
+var song = path + "song.wav"
 var map = path + "map.json"
 
 var bpm = 117
@@ -33,9 +33,11 @@ var bpm = 117
 func _ready():
 	load_song()
 	var music_player = AudioStreamPlayer.new()
+	await get_tree().create_timer(1).timeout
 	music_player.stream = load(song)
 	add_child(music_player)
 	music_player.play()
+	
 	
 func load_lane(dict, lane):
 	var note = preload("res://assets/note.tscn")
@@ -51,7 +53,7 @@ func load_lane(dict, lane):
 			add_child(cur_note)
 			var move_by = (((bpm/60.0)/16.0) * 19.5)
 			cur_note.position.x = lane_x[lane]
-			cur_note.position.z = start - move_by
+			cur_note.position.z = note_start - move_by
 				
 		elif lane_notes[i] == 2:
 			var cur_note = hold_start.instantiate()
