@@ -28,7 +28,6 @@ var is_lane_4_held = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var music_player = AudioStreamPlayer.new()
-	await get_tree().create_timer(1).timeout
 	music_player.stream = load(song)
 	add_child(music_player)
 	music_player.play()

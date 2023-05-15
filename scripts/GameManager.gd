@@ -29,16 +29,18 @@ var map = path + "map.json"
 
 var bpm = 117
 var divisions = 32
+var time = 120.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_map()
 	var music_player = AudioStreamPlayer.new()
-	await get_tree().create_timer(2).timeout
 	music_player.stream = load(song)
 	add_child(music_player)
+	await get_tree().create_timer(2).timeout
 	music_player.play()
-	
+	#pass
 	
 func load_lane(dict, lane):
 	var note = preload("res://assets/note.tscn")
@@ -52,32 +54,32 @@ func load_lane(dict, lane):
 		if lane_notes[i] == 1:
 			var cur_note = note.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/60.0)/divisions) * 19.5)
+			var move_by = (((bpm/time)/divisions) * 20)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 				
 		elif lane_notes[i] == 2:
 			var cur_note = hold_start.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/60.0)/divisions) * 19.5)
+			var move_by = (((bpm/time)/divisions) * 20)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 		
 		elif lane_notes[i] == 3:
 			var cur_note = hold_inter.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/60.0)/divisions) * 19.5)
+			var move_by = (((bpm/time)/divisions) * 20)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 		
 		elif lane_notes[i] == 4:
 			var cur_note = hold_end.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/60.0)/divisions) * 19.5)
+			var move_by = (((bpm/time)/divisions) * 20)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 			
-		#note_start -= (((bpm/60.0)/divisions) * 19.5)
+		note_start -= (((bpm/time)/divisions) * 20)
 
 func load_map():
 	if not FileAccess.file_exists(map):
