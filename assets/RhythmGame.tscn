@@ -43,6 +43,7 @@ mesh = SubResource("PlaneMesh_rc6nw")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.550685, 0.834713, 0, -0.834713, 0.550685, 0, 3.74408, 1.68606)
 attributes = SubResource("CameraAttributesPractical_kphdp")
+current = true
 fov = 92.0
 size = 10.0
 

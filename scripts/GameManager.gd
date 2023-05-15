@@ -28,12 +28,13 @@ var song = path + "song.wav"
 var map = path + "map.json"
 
 var bpm = 117
+var divisions = 32
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_song()
+	load_map()
 	var music_player = AudioStreamPlayer.new()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	music_player.stream = load(song)
 	add_child(music_player)
 	music_player.play()
@@ -51,34 +52,34 @@ func load_lane(dict, lane):
 		if lane_notes[i] == 1:
 			var cur_note = note.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/60.0)/16.0) * 19.5)
+			var move_by = (((bpm/60.0)/divisions) * 19.5)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 				
 		elif lane_notes[i] == 2:
 			var cur_note = hold_start.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/60.0)/16.0) * 19.5)
+			var move_by = (((bpm/60.0)/divisions) * 19.5)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 		
 		elif lane_notes[i] == 3:
 			var cur_note = hold_inter.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/60.0)/16.0) * 19.5)
+			var move_by = (((bpm/60.0)/divisions) * 19.5)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 		
 		elif lane_notes[i] == 4:
 			var cur_note = hold_end.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/60.0)/16.0) * 19.5)
+			var move_by = (((bpm/60.0)/divisions) * 19.5)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 			
-		note_start -= (((bpm/60.0)/32.0) * 19.5)
+		#note_start -= (((bpm/60.0)/divisions) * 19.5)
 
-func load_song():
+func load_map():
 	if not FileAccess.file_exists(map):
 		print("Error could not load map")
 		return 
@@ -89,21 +90,6 @@ func load_song():
 	load_lane(dict, lanes.lane2)
 	load_lane(dict, lanes.lane3)
 	load_lane(dict, lanes.lane4)
-	
-	
-func save():
-	var dict = {}
-	dict["song_name"] = $/root/Global.map
-	
-	dict["lane1"] = [0,1,2,3,4]
-	dict["lane2"] = [0,1,2,3,4]
-	dict["lane3"] = [0,1,2,3,4]
-	dict["lane4"] = [0,1,2,3,4]
-	
-	var save_file = FileAccess.open(map, FileAccess.WRITE)
-	save_file.store_string(JSON.stringify(dict))
-	print(dict)
-	print("Saved")
 
 	
 func judge_lane(l):
@@ -129,11 +115,12 @@ func judge_lane(l):
 		
 	var lane_pointer = lane.size()-1
 	if lane.size()-1 < 0:
-		lane_pointer = 0
-	if !lane.is_empty():
-		if !is_instance_valid(lane[lane_pointer]):
-			lane.pop_back()
-			
+		lane_pointer = -1
+	elif !is_instance_valid(lane[lane_pointer]):
+		lane.pop_back()
+		lane_pointer -= 1
+		
+	if !lane.is_empty() && lane_pointer >= 0:	
 		if Input.is_action_just_pressed(laneHit):
 			print(lane[lane_pointer].get_judge()) #replace with showing judgement later
 			lane[lane_pointer].hit()
