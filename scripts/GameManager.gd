@@ -30,6 +30,7 @@ var map = path + "map.json"
 var bpm = 117
 var divisions = 32
 var time = 120.0
+var hitsound_player = AudioStreamPlayer.new()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +41,8 @@ func _ready():
 	add_child(music_player)
 	await get_tree().create_timer(2).timeout
 	music_player.play()
+	hitsound_player.stream = load("res://resources/normal-hitnormal.wav")
+	add_child(hitsound_player)
 	#pass
 	
 func load_lane(dict, lane):
@@ -50,36 +53,32 @@ func load_lane(dict, lane):
 	var lane_notes = dict[lanes.keys()[lane]]
 	var note_start = start
 	for i in range(lane_notes.size()):
-		
+		var move_by = ((30.0 * start)/bpm)/divisions
 		if lane_notes[i] == 1:
 			var cur_note = note.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/time)/divisions) * 20)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 				
 		elif lane_notes[i] == 2:
 			var cur_note = hold_start.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/time)/divisions) * 20)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 		
 		elif lane_notes[i] == 3:
 			var cur_note = hold_inter.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/time)/divisions) * 20)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 		
 		elif lane_notes[i] == 4:
 			var cur_note = hold_end.instantiate()
 			add_child(cur_note)
-			var move_by = (((bpm/time)/divisions) * 20)
 			cur_note.position.x = lane_x[lane]
 			cur_note.position.z = note_start - move_by
 			
-		note_start -= (((bpm/time)/divisions) * 20)
+		note_start += move_by
 
 func load_map():
 	if not FileAccess.file_exists(map):
@@ -88,6 +87,8 @@ func load_map():
 		
 	var load_file = FileAccess.open(map, FileAccess.READ)
 	var dict = JSON.parse_string(load_file.get_as_text())
+	
+	
 	load_lane(dict, lanes.lane1)
 	load_lane(dict, lanes.lane2)
 	load_lane(dict, lanes.lane3)
@@ -126,6 +127,7 @@ func judge_lane(l):
 		if Input.is_action_just_pressed(laneHit):
 			print(lane[lane_pointer].get_judge()) #replace with showing judgement later
 			lane[lane_pointer].hit()
+			hitsound_player.play()
 			if lane[lane_pointer].get_type() == "hold_start":
 				lane_is_held = true
 			else:

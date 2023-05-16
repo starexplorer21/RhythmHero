@@ -2,7 +2,7 @@ extends Node3D
 
 
 var bpm = 117
-var time_between_notes = ((bpm/60.0)/32.0)
+var time_between_notes = ((30.0)/bpm)/32.0
 var timer = 0
 
 var path = "res://maps/"+Global.map+"/"
@@ -47,7 +47,6 @@ func save():
 	print("Saved")
 
 func _physics_process(delta):
-	timer += delta
 	if timer >= time_between_notes:
 		lane1.push_back(queued_input_lane_1)
 		if is_lane_1_held:
@@ -76,6 +75,7 @@ func _physics_process(delta):
 			queued_input_lane_4 = 0
 			
 		timer = 0
+	timer += delta
 	
 	if Input.is_action_just_pressed("lane1") and !is_lane_1_held:
 		queued_input_lane_1 = 1
