@@ -2,7 +2,7 @@ extends Node3D
 
 
 var bpm = 117
-var time_between_notes = ((30.0)/bpm)/32.0
+#var time_between_notes = ((30.0)/bpm)/32.0
 var timer = 0
 
 var path = "res://maps/"+Global.map+"/"
@@ -47,35 +47,35 @@ func save():
 	print("Saved")
 
 func _physics_process(delta):
-	if timer >= time_between_notes:
-		lane1.push_back(queued_input_lane_1)
-		if is_lane_1_held:
-			queued_input_lane_1 = 3
-		else:
-			queued_input_lane_1 = 0
-			
-		lane2.push_back(queued_input_lane_2)
-		if is_lane_2_held:
-			queued_input_lane_2 = 3
-		else:
-			queued_input_lane_2 = 0
-			
-			
-		lane3.push_back(queued_input_lane_3)
-		if is_lane_3_held:
-			queued_input_lane_3 = 3
-		else:
-			queued_input_lane_3 = 0
-			
-			
-		lane4.push_back(queued_input_lane_4)
-		if is_lane_4_held:
-			queued_input_lane_4 = 3
-		else:
-			queued_input_lane_4 = 0
-			
-		timer = 0
-	timer += delta
+	#if timer >= time_between_notes:
+	lane1.push_back(queued_input_lane_1)
+	if is_lane_1_held:
+		queued_input_lane_1 = 3
+	else:
+		queued_input_lane_1 = 0
+		
+	lane2.push_back(queued_input_lane_2)
+	if is_lane_2_held:
+		queued_input_lane_2 = 3
+	else:
+		queued_input_lane_2 = 0
+		
+		
+	lane3.push_back(queued_input_lane_3)
+	if is_lane_3_held:
+		queued_input_lane_3 = 3
+	else:
+		queued_input_lane_3 = 0
+		
+		
+	lane4.push_back(queued_input_lane_4)
+	if is_lane_4_held:
+		queued_input_lane_4 = 3
+	else:
+		queued_input_lane_4 = 0
+		
+	#timer = 0
+	#timer += delta
 	
 	if Input.is_action_just_pressed("lane1") and !is_lane_1_held:
 		queued_input_lane_1 = 1

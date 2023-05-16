@@ -27,6 +27,13 @@ var path = "res://maps/"+Global.map+"/"
 var song = path + "song.wav"
 var map = path + "map.json"
 
+var map_dict
+var note
+var hold_start
+var hold_inter
+var hold_end
+var map_position = 0
+
 var bpm = 117
 var divisions = 32
 var time = 120.0
@@ -36,20 +43,24 @@ var hitsound_player = AudioStreamPlayer.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_map()
+	note = preload("res://assets/note.tscn")
+	hold_start = preload("res://assets/hold_note_start.tscn")
+	hold_inter = preload("res://assets/hold_note_intermediate.tscn")
+	hold_end = preload("res://assets/hold_note_end.tscn")
 	var music_player = AudioStreamPlayer.new()
 	music_player.stream = load(song)
 	add_child(music_player)
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(2.1).timeout
 	music_player.play()
 	hitsound_player.stream = load("res://resources/normal-hitnormal.wav")
 	add_child(hitsound_player)
 	#pass
 	
 func load_lane(dict, lane):
-	var note = preload("res://assets/note.tscn")
-	var hold_start = preload("res://assets/hold_note_start.tscn")
-	var hold_inter = preload("res://assets/hold_note_intermediate.tscn")
-	var hold_end = preload("res://assets/hold_note_end.tscn")
+	note = preload("res://assets/note.tscn")
+	hold_start = preload("res://assets/hold_note_start.tscn")
+	hold_inter = preload("res://assets/hold_note_intermediate.tscn")
+	hold_end = preload("res://assets/hold_note_end.tscn")
 	var lane_notes = dict[lanes.keys()[lane]]
 	var note_start = start
 	for i in range(lane_notes.size()):
@@ -86,15 +97,47 @@ func load_map():
 		return 
 		
 	var load_file = FileAccess.open(map, FileAccess.READ)
-	var dict = JSON.parse_string(load_file.get_as_text())
+	map_dict = JSON.parse_string(load_file.get_as_text())
 	
-	
-	load_lane(dict, lanes.lane1)
-	load_lane(dict, lanes.lane2)
-	load_lane(dict, lanes.lane3)
-	load_lane(dict, lanes.lane4)
+	#load_lane(map_dict, lanes.lane1)
+	#load_lane(map_dict, lanes.lane2)
+	#load_lane(map_dict, lanes.lane3)
+	#load_lane(map_dict, lanes.lane4)
 
-	
+func load_row():
+	if map_position < len(map_dict["lane1"]):
+		var row_notes = []
+		row_notes.push_back(map_dict["lane1"][map_position])
+		row_notes.push_back(map_dict["lane2"][map_position])
+		row_notes.push_back(map_dict["lane3"][map_position])
+		row_notes.push_back(map_dict["lane4"][map_position])
+		for i in range(4):
+			var read_note = row_notes[i]
+			if read_note == 1:
+				var cur_note = note.instantiate()
+				add_child(cur_note)
+				cur_note.position.x = lane_x[i]
+				cur_note.position.z = start
+					
+			elif read_note == 2:
+				var cur_note = hold_start.instantiate()
+				add_child(cur_note)
+				cur_note.position.x = lane_x[i]
+				cur_note.position.z = start
+			
+			elif read_note == 3:
+				var cur_note = hold_inter.instantiate()
+				add_child(cur_note)
+				cur_note.position.x = lane_x[i]
+				cur_note.position.z = start
+			
+			elif read_note == 4:
+				var cur_note = hold_end.instantiate()
+				add_child(cur_note)
+				cur_note.position.x = lane_x[i]
+				cur_note.position.z = start
+		
+		
 func judge_lane(l):
 	var lane = []
 	var lane_is_held = false
@@ -157,6 +200,8 @@ func _physics_process(delta):
 	judge_lane(2)
 	judge_lane(3)
 	judge_lane(4)
+	load_row()
+	map_position += 1
 	
 
 func _on_lane_queue_1_body_entered(body):
