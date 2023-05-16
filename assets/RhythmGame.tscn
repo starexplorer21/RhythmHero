@@ -35,35 +35,39 @@ size = Vector3(1.79095, 1, 1)
 [node name="RhythmGame" type="Node3D"]
 script = ExtResource("4_m0ims")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12181, 7.02043, -1.73509)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+omni_range = 36.0
+
 [node name="Road" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 11, 0, 0, -8.12168)
 material_override = SubResource("StandardMaterial3D_nrqpv")
 mesh = SubResource("PlaneMesh_rc6nw")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.550685, 0.834713, 0, -0.834713, 0.550685, 0, 3.74408, 1.68606)
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.339182, 0.940721, 0, -0.940721, 0.339182, 0, 17.9435, -0.510685)
 attributes = SubResource("CameraAttributesPractical_kphdp")
 fov = 92.0
 size = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.550685, 0.834713, 0, -0.834713, 0.550685, 0, 3.74408, 1.68606)
+attributes = SubResource("CameraAttributesPractical_kphdp")
+doppler_tracking = 1
+current = true
+fov = 92.0
+size = 10.0
+far = 37.54
 
 [node name="Background" type="MeshInstance3D" parent="."]
 transform = Transform3D(42, 0, 0, 0, 23.3741, -15.4124, 0, 15.4124, 23.3741, 0.0749443, -16.1988, -4.80364)
 material_override = SubResource("StandardMaterial3D_y5i5g")
 gi_lightmap_scale = 3
 mesh = SubResource("PlaneMesh_sgfrx")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5806, -7.06237)
-light_energy = 16.0
-omni_range = 4096.0
-omni_shadow_mode = 0
-
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.339182, 0.940721, 0, -0.940721, 0.339182, 0, 17.9435, -0.510685)
-visible = false
-attributes = SubResource("CameraAttributesPractical_kphdp")
-fov = 92.0
-size = 10.0
 
 [node name="Judger" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.24265)

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bq7jxb8sgt2b0"]
+
+[ext_resource type="Texture2D" uid="uid://cmvuia48w4vh6" path="res://resources/road2.png" id="1_hg2rk"]
+[ext_resource type="Script" path="res://assets/move_recorder.gd" id="1_yig84"]
+[ext_resource type="Texture2D" uid="uid://b3g6ka5bke5o5" path="res://resources/default.png" id="2_xfvc2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1b6m"]
+transparency = 1
+albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
+albedo_texture = ExtResource("1_hg2rk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_catm1"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1vobv"]
+exposure_multiplier = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxnng"]
+albedo_texture = ExtResource("2_xfvc2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e8eow"]
+
+[node name="MoveRecorder" type="Node3D"]
+script = ExtResource("1_yig84")
+
+[node name="Road" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 11, 0, 0, -8.12168)
+material_override = SubResource("StandardMaterial3D_k1b6m")
+mesh = SubResource("PlaneMesh_catm1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.550685, 0.834713, 0, -0.834713, 0.550685, 0, 3.74408, 1.68606)
+attributes = SubResource("CameraAttributesPractical_1vobv")
+fov = 92.0
+size = 10.0
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.339182, 0.940721, 0, -0.940721, 0.339182, 0, 17.9435, -0.510685)
+visible = false
+attributes = SubResource("CameraAttributesPractical_1vobv")
+fov = 92.0
+size = 10.0
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(42, 0, 0, 0, 23.3741, -15.4124, 0, 15.4124, 23.3741, 0.0749443, -16.1988, -4.80364)
+material_override = SubResource("StandardMaterial3D_uxnng")
+gi_lightmap_scale = 3
+mesh = SubResource("PlaneMesh_e8eow")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5806, -7.06237)
+light_energy = 16.0
+omni_range = 4096.0
+omni_shadow_mode = 0

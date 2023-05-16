@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-var move = Vector3(0,0,0.36)
+var move = Vector3(0,0,0.172666)
 var judge = "Miss"
 
 # Called when the node enters the scene tree for the first time.
