@@ -129,6 +129,7 @@ func judge_lane(l):
 	var lane_pointer = lane.size()-1
 	if lane.size()-1 < 0:
 		lane_pointer = -1
+	
 	elif !is_instance_valid(lane[lane_pointer]):
 		lane.pop_back()
 		lane_pointer -= 1
@@ -143,17 +144,13 @@ func judge_lane(l):
 			if lane[lane_pointer].get_type() == "hold_start":
 				lane_is_held = true
 			else:
-				print(lane)
 				lane.pop_back()
-				print(lane)
 				
 		if Input.is_action_just_released(laneHit) && lane_is_held:
-			print(lane[lane_pointer].get_judge())
+			$Control/RichTextLabel.text = lane[lane_pointer].get_judge()
 			lane[lane_pointer].release()
 			lane.pop_back()
 			lane_is_held = false
-			print("released")
-			print(lane)
 	if l == 1:
 		lane1_is_held = lane_is_held
 	elif l == 2:

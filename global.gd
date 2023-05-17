@@ -1,6 +1,6 @@
 extends Node
 
-var map = "Awake Now"
+var map = "Lower"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
