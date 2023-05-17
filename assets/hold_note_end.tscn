@@ -8,6 +8,7 @@ size = Vector3(1.70757, 1, 0.520216)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpbp7"]
 transparency = 1
+albedo_color = Color(0.462745, 0.462745, 0.462745, 1)
 albedo_texture = ExtResource("1_5al8d")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7vbdv"]

@@ -5,6 +5,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ub8qd"]
 transparency = 1
+albedo_color = Color(0.462745, 0.462745, 0.462745, 1)
 albedo_texture = ExtResource("1_bv14d")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7vbdv"]

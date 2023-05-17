@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ag0rkbhtfv2"]
+
+[ext_resource type="Script" path="res://game_end.gd" id="1_0ecd8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0t3dn"]
+size = Vector3(1.70757, 1, 2.00982)
+
+[node name="game_end" type="CharacterBody3D"]
+script = ExtResource("1_0ecd8")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.334303)
+shape = SubResource("BoxShape3D_0t3dn")

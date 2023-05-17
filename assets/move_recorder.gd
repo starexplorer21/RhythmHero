@@ -35,7 +35,10 @@ func _ready():
 func save():
 	var dict = {}
 	dict["song_name"] = $/root/Global.map
-	
+	lane1.push_back(5)
+	lane2.push_back(5)
+	lane3.push_back(5)
+	lane4.push_back(5)
 	dict["lane1"] = lane1
 	dict["lane2"] = lane2
 	dict["lane3"] = lane3

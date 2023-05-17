@@ -32,6 +32,7 @@ var note
 var hold_start
 var hold_inter
 var hold_end
+var end
 var map_position = 0
 
 var bpm = 117
@@ -47,49 +48,14 @@ func _ready():
 	hold_start = preload("res://assets/hold_note_start.tscn")
 	hold_inter = preload("res://assets/hold_note_intermediate.tscn")
 	hold_end = preload("res://assets/hold_note_end.tscn")
+	end = preload("res://assets/game_end.tscn")
 	var music_player = AudioStreamPlayer.new()
 	music_player.stream = load(song)
 	add_child(music_player)
-	await get_tree().create_timer(2.1).timeout
+	await get_tree().create_timer(1.3).timeout
 	music_player.play()
 	hitsound_player.stream = load("res://resources/normal-hitnormal.wav")
 	add_child(hitsound_player)
-	#pass
-	
-func load_lane(dict, lane):
-	note = preload("res://assets/note.tscn")
-	hold_start = preload("res://assets/hold_note_start.tscn")
-	hold_inter = preload("res://assets/hold_note_intermediate.tscn")
-	hold_end = preload("res://assets/hold_note_end.tscn")
-	var lane_notes = dict[lanes.keys()[lane]]
-	var note_start = start
-	for i in range(lane_notes.size()):
-		var move_by = ((30.0 * start)/bpm)/divisions
-		if lane_notes[i] == 1:
-			var cur_note = note.instantiate()
-			add_child(cur_note)
-			cur_note.position.x = lane_x[lane]
-			cur_note.position.z = note_start - move_by
-				
-		elif lane_notes[i] == 2:
-			var cur_note = hold_start.instantiate()
-			add_child(cur_note)
-			cur_note.position.x = lane_x[lane]
-			cur_note.position.z = note_start - move_by
-		
-		elif lane_notes[i] == 3:
-			var cur_note = hold_inter.instantiate()
-			add_child(cur_note)
-			cur_note.position.x = lane_x[lane]
-			cur_note.position.z = note_start - move_by
-		
-		elif lane_notes[i] == 4:
-			var cur_note = hold_end.instantiate()
-			add_child(cur_note)
-			cur_note.position.x = lane_x[lane]
-			cur_note.position.z = note_start - move_by
-			
-		note_start += move_by
 
 func load_map():
 	if not FileAccess.file_exists(map):
@@ -99,11 +65,6 @@ func load_map():
 	var load_file = FileAccess.open(map, FileAccess.READ)
 	map_dict = JSON.parse_string(load_file.get_as_text())
 	
-	#load_lane(map_dict, lanes.lane1)
-	#load_lane(map_dict, lanes.lane2)
-	#load_lane(map_dict, lanes.lane3)
-	#load_lane(map_dict, lanes.lane4)
-
 func load_row():
 	if map_position < len(map_dict["lane1"]):
 		var row_notes = []
@@ -136,7 +97,11 @@ func load_row():
 				add_child(cur_note)
 				cur_note.position.x = lane_x[i]
 				cur_note.position.z = start
-		
+			elif read_note == 5:
+				var cur_note = end.instantiate()
+				add_child(cur_note)
+				cur_note.position.x = lane_x[i]
+				cur_note.position.z = start
 		
 func judge_lane(l):
 	var lane = []
@@ -158,6 +123,8 @@ func judge_lane(l):
 		lane = lane4
 		lane_is_held = lane4_is_held
 		laneHit = "lane4"
+	elif l == 5:
+		queue_free()
 		
 	var lane_pointer = lane.size()-1
 	if lane.size()-1 < 0:
@@ -166,9 +133,11 @@ func judge_lane(l):
 		lane.pop_back()
 		lane_pointer -= 1
 		
-	if !lane.is_empty() && lane_pointer >= 0:	
+	if !lane.is_empty() && lane_pointer >= 0:
+		if lane[lane_pointer].get_type() == "end":
+			queue_free()
 		if Input.is_action_just_pressed(laneHit):
-			print(lane[lane_pointer].get_judge()) #replace with showing judgement later
+			$Control/RichTextLabel.text = lane[lane_pointer].get_judge() #replace with showing judgement later
 			lane[lane_pointer].hit()
 			hitsound_player.play()
 			if lane[lane_pointer].get_type() == "hold_start":
