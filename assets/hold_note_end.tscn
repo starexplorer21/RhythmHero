@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh7nwbi4r8cn5"]
+[gd_scene load_steps=9 format=3 uid="uid://dh7nwbi4r8cn5"]
 
 [ext_resource type="Texture2D" uid="uid://b3uun0uane2tp" path="res://resources/notes_long.png" id="1_5al8d"]
 [ext_resource type="Script" path="res://scripts/hold_note_end.gd" id="1_i0qn1"]
+[ext_resource type="Texture2D" uid="uid://ca6gc1hoj4sot" path="res://resources/notes_crtcl.png" id="3_fcc0w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpbp7"]
 transparency = 1
@@ -9,6 +10,13 @@ albedo_color = Color(0.462745, 0.462745, 0.462745, 1)
 albedo_texture = ExtResource("1_5al8d")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7vbdv"]
+size = Vector2(2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3rlf"]
+transparency = 1
+albedo_texture = ExtResource("3_fcc0w")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kffr1"]
 size = Vector2(2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_61770"]
@@ -21,6 +29,12 @@ script = ExtResource("1_i0qn1")
 transform = Transform3D(-1.24992, 0, -0.0140496, 0, 1.25, 0, 0.0140496, 0, -1.24992, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_cpbp7")
 mesh = SubResource("PlaneMesh_7vbdv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-1.24981, 0.0106465, -0.0189305, 0.0212917, 0.815636, -0.946987, 0.00428661, -0.947167, -0.815693, -0.00244477, 0, 0.217499)
+visible = false
+material_override = SubResource("StandardMaterial3D_t3rlf")
+mesh = SubResource("PlaneMesh_kffr1")
 
 [node name="Area3D" type="Area3D" parent="."]
 

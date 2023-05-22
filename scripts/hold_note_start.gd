@@ -35,6 +35,8 @@ func get_judge():
 	return judge
 	
 func release():
+	$MeshInstance3D/MeshInstance3D.visible = true
+	await get_tree().create_timer(0.05).timeout
 	queue_free()
 	
 func get_type():

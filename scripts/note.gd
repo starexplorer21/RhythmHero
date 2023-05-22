@@ -16,6 +16,8 @@ func _physics_process(delta):
 	move_and_collide(move)
 	
 func hit():
+	$MeshInstance3D/MeshInstance3D.visible = true
+	await get_tree().create_timer(0.05).timeout
 	queue_free()
 	
 func miss():
