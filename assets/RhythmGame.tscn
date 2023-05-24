@@ -9,18 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://k14mijfcpv82" path="res://resources/Judgements/Great.png" id="7_fd0tb"]
 [ext_resource type="Texture2D" uid="uid://dnsihcfwsuogw" path="res://resources/Judgements/Miss.png" id="8_ku0vn"]
 [ext_resource type="Texture2D" uid="uid://dvsa0v315ka7k" path="res://resources/Judgements/Perfect.png" id="9_71sod"]
-[gd_scene load_steps=14 format=3 uid="uid://o3t3pjcajs1"]
-
-[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_wltuu"]
-[ext_resource type="Texture2D" uid="uid://cmvuia48w4vh6" path="res://resources/road2.png" id="2_5d6ji"]
-[ext_resource type="Texture2D" uid="uid://b3g6ka5bke5o5" path="res://resources/default.png" id="3_1dkcd"]
-[ext_resource type="Texture2D" uid="uid://07aiysk230jf" path="res://resources/hit-area.png" id="4_wvf66"]
-[ext_resource type="PackedScene" uid="uid://dan5a8knvkhrm" path="res://assets/Rhythm Game/lane_judge.tscn" id="5_lh3yu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrqpv"]
 transparency = 1
 albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
-albedo_texture = ExtResource("2_5d6ji")
+albedo_texture = ExtResource("1_mdubm")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rc6nw"]
 
@@ -28,7 +21,7 @@ albedo_texture = ExtResource("2_5d6ji")
 exposure_multiplier = 2.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5i5g"]
-albedo_texture = ExtResource("3_1dkcd")
+albedo_texture = ExtResource("2_x2yj1")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sgfrx"]
 
@@ -36,7 +29,7 @@ albedo_texture = ExtResource("3_1dkcd")
 render_priority = 1
 transparency = 1
 albedo_color = Color(0.8, 0.905882, 1, 1)
-albedo_texture = ExtResource("4_wvf66")
+albedo_texture = ExtResource("3_seyps")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0fgnh"]
 
@@ -44,7 +37,7 @@ albedo_texture = ExtResource("4_wvf66")
 size = Vector3(1.79095, 1, 1)
 
 [node name="RhythmGame" type="Node3D"]
-script = ExtResource("1_wltuu")
+script = ExtResource("4_m0ims")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12181, 7.02043, -1.73509)
@@ -88,16 +81,16 @@ transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 0.33, 0.00575734, 0, -0.376809)
 material_override = SubResource("StandardMaterial3D_cf77e")
 mesh = SubResource("PlaneMesh_0fgnh")
 
-[node name="LaneJudge" parent="Judger" instance=ExtResource("5_lh3yu")]
+[node name="LaneJudge" parent="Judger" instance=ExtResource("6_hmagr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.904038, 0, 0)
 
-[node name="LaneJudge2" parent="Judger" instance=ExtResource("5_lh3yu")]
+[node name="LaneJudge2" parent="Judger" instance=ExtResource("6_hmagr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96693, 0, 0)
 
-[node name="LaneJudge3" parent="Judger" instance=ExtResource("5_lh3yu")]
+[node name="LaneJudge3" parent="Judger" instance=ExtResource("6_hmagr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04882, 0, 0)
 
-[node name="LaneJudge4" parent="Judger" instance=ExtResource("5_lh3yu")]
+[node name="LaneJudge4" parent="Judger" instance=ExtResource("6_hmagr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00168, 0, 0)
 
 [node name="Queuer" type="Node3D" parent="."]

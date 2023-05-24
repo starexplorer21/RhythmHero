@@ -1,20 +1,20 @@
 [gd_scene load_steps=9 format=3 uid="uid://dh7nwbi4r8cn5"]
 
-[ext_resource type="Script" path="res://scripts/hold_note_end.gd" id="1_ueaw8"]
-[ext_resource type="Texture2D" uid="uid://b3uun0uane2tp" path="res://resources/notes_long.png" id="2_h8ba1"]
-[ext_resource type="Texture2D" uid="uid://ca6gc1hoj4sot" path="res://resources/notes_crtcl.png" id="3_faebs"]
+[ext_resource type="Texture2D" uid="uid://b3uun0uane2tp" path="res://resources/notes_long.png" id="1_5al8d"]
+[ext_resource type="Script" path="res://scripts/hold_note_end.gd" id="1_i0qn1"]
+[ext_resource type="Texture2D" uid="uid://ca6gc1hoj4sot" path="res://resources/notes_crtcl.png" id="3_fcc0w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpbp7"]
 transparency = 1
 albedo_color = Color(0.462745, 0.462745, 0.462745, 1)
-albedo_texture = ExtResource("2_h8ba1")
+albedo_texture = ExtResource("1_5al8d")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7vbdv"]
 size = Vector2(2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3rlf"]
 transparency = 1
-albedo_texture = ExtResource("3_faebs")
+albedo_texture = ExtResource("3_fcc0w")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kffr1"]
 size = Vector2(2, 1)
@@ -23,7 +23,7 @@ size = Vector2(2, 1)
 size = Vector3(1.70757, 1, 0.520216)
 
 [node name="hold_note_end" type="CharacterBody3D"]
-script = ExtResource("1_ueaw8")
+script = ExtResource("1_i0qn1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.24992, 0, -0.0140496, 0, 1.25, 0, 0.0140496, 0, -1.24992, 0, 0, 0)
