@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bffgwvgglc3t1"]
+[gd_scene load_steps=18 format=3 uid="uid://bffgwvgglc3t1"]
 
 [ext_resource type="Texture2D" uid="uid://cmvuia48w4vh6" path="res://resources/road2.png" id="1_mdubm"]
 [ext_resource type="Texture2D" uid="uid://b3g6ka5bke5o5" path="res://resources/default.png" id="2_x2yj1"]
 [ext_resource type="Texture2D" uid="uid://07aiysk230jf" path="res://resources/hit-area.png" id="3_seyps"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="4_m0ims"]
 [ext_resource type="PackedScene" uid="uid://dan5a8knvkhrm" path="res://assets/lane_judge.tscn" id="6_hmagr"]
+[ext_resource type="Texture2D" uid="uid://dhmvbancbu86n" path="res://resources/Judgements/Good.png" id="6_pb47b"]
+[ext_resource type="Texture2D" uid="uid://k14mijfcpv82" path="res://resources/Judgements/Great.png" id="7_fd0tb"]
+[ext_resource type="Texture2D" uid="uid://dnsihcfwsuogw" path="res://resources/Judgements/Miss.png" id="8_ku0vn"]
+[ext_resource type="Texture2D" uid="uid://dvsa0v315ka7k" path="res://resources/Judgements/Perfect.png" id="9_71sod"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrqpv"]
 transparency = 1
@@ -130,12 +134,21 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
-layout_mode = 1
-offset_left = -37.0
-offset_top = -5.0
-offset_right = 134.0
-offset_bottom = 35.0
+[node name="Good" type="Sprite2D" parent="Control"]
+position = Vector2(14, 12)
+texture = ExtResource("6_pb47b")
+
+[node name="Great" type="Sprite2D" parent="Control"]
+position = Vector2(21, 11)
+texture = ExtResource("7_fd0tb")
+
+[node name="Miss" type="Sprite2D" parent="Control"]
+position = Vector2(12, 14)
+texture = ExtResource("8_ku0vn")
+
+[node name="Perfect" type="Sprite2D" parent="Control"]
+position = Vector2(20, 9)
+texture = ExtResource("9_71sod")
 
 [connection signal="body_entered" from="Queuer/LaneQueue1" to="." method="_on_lane_queue_1_body_entered"]
 [connection signal="body_entered" from="Queuer/LaneQueue2" to="." method="_on_lane_queue_2_body_entered"]

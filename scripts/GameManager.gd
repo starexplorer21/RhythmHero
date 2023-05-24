@@ -45,8 +45,18 @@ var goods = 0
 var misses = 0
 var total_score = 0
 
+var perfect
+var great 
+var good 
+var miss
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	perfect = $Control/Perfect
+	great = $Control/Great
+	good = $Control/Good
+	miss = $Control/Miss
+	reset_all()
 	load_map()
 	note = preload("res://assets/note.tscn")
 	hold_start = preload("res://assets/hold_note_start.tscn")
@@ -56,7 +66,7 @@ func _ready():
 	var music_player = AudioStreamPlayer.new()
 	music_player.stream = load(song)
 	add_child(music_player)
-	await get_tree().create_timer(1.3).timeout
+	await get_tree().create_timer(1.1).timeout
 	music_player.play()
 	hitsound_player.stream = load("res://resources/normal-hitnormal.wav")
 	add_child(hitsound_player)
@@ -69,6 +79,21 @@ func load_map():
 	var load_file = FileAccess.open(map, FileAccess.READ)
 	map_dict = JSON.parse_string(load_file.get_as_text())
 	
+func play_hit(judge):
+	reset_all()
+	for i in range(5):
+		judge.modulate.a += 0.2
+		await get_tree().create_timer(0.01).timeout
+	for i in range(5):
+		judge.modulate.a -= 0.2
+		await get_tree().create_timer(0.01).timeout
+
+func reset_all():
+	perfect.modulate.a = 0
+	great.modulate.a = 0
+	good.modulate.a = 0
+	miss.modulate.a = 0
+		
 func load_row():
 	if map_position < len(map_dict["lane1"]):
 		var row_notes = []
@@ -142,9 +167,7 @@ func judge_lane(l):
 		lane_pointer -= 1
 
 	if !lane.is_empty() && lane_pointer >= 0:
-		$Control/RichTextLabel.text = ""
 		if Input.is_action_just_pressed(laneHit):
-			$Control/RichTextLabel.text = lane[lane_pointer].get_judge() #replace with showing judgement later
 			calc_judge(lane[lane_pointer].get_judge())
 			lane[lane_pointer].hit()
 			hitsound_player.play()
@@ -154,7 +177,6 @@ func judge_lane(l):
 				lane.pop_back()
 				
 		if Input.is_action_just_released(laneHit) && lane_is_held:
-			$Control/RichTextLabel.text = lane[lane_pointer].get_judge()
 			calc_judge(lane[lane_pointer].get_judge())
 			lane[lane_pointer].release()
 			lane.pop_back()
@@ -172,12 +194,16 @@ func judge_lane(l):
 func calc_judge(judgement):
 	if judgement == "Perfect":
 		perfects += 1
+		play_hit(perfect)
 	elif judgement == "Great":
 		greats += 1
+		play_hit(great)
 	elif judgement == "Good":
 		goods += 1
+		play_hit(good)
 	elif judgement == "Miss":
 		misses += 1
+		play_hit(miss)
 
 func _physics_process(delta):
 	judge_lane(1)
