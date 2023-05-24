@@ -1,27 +1,27 @@
 [gd_scene load_steps=8 format=3 uid="uid://d15t00gwcn53r"]
 
-[ext_resource type="Script" path="res://scripts/note.gd" id="1_6giv0"]
-[ext_resource type="Texture2D" uid="uid://biyis32na02p0" path="res://resources/notes_normal.png" id="2_bfu1t"]
-[ext_resource type="Texture2D" uid="uid://ca6gc1hoj4sot" path="res://resources/notes_crtcl.png" id="3_jiflo"]
+[ext_resource type="Script" path="res://scripts/note.gd" id="1_026i1"]
+[ext_resource type="Texture2D" uid="uid://biyis32na02p0" path="res://resources/notes_normal.png" id="2_igepu"]
+[ext_resource type="Texture2D" uid="uid://ca6gc1hoj4sot" path="res://resources/notes_crtcl.png" id="3_gowhs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsw1t"]
 render_priority = 2
 transparency = 1
 albedo_color = Color(0.462745, 0.462745, 0.462745, 1)
-albedo_texture = ExtResource("2_bfu1t")
+albedo_texture = ExtResource("2_igepu")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_povkj"]
 size = Vector2(2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qaey"]
 transparency = 1
-albedo_texture = ExtResource("3_jiflo")
+albedo_texture = ExtResource("3_gowhs")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jg3p5"]
 size = Vector3(1.77297, 1, 0.557204)
 
 [node name="Note" type="CharacterBody3D"]
-script = ExtResource("1_6giv0")
+script = ExtResource("1_026i1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.24992, 0, -0.0140496, 0, 1.25, 0, 0.0140496, 0, -1.24992, 0, 0, 0)
