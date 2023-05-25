@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://d15t00gwcn53r"]
+
+[ext_resource type="Script" path="res://scripts/note.gd" id="1_jslr5"]
+[ext_resource type="Texture2D" uid="uid://biyis32na02p0" path="res://resources/notes_normal.png" id="2_ncybo"]
+[ext_resource type="Texture2D" uid="uid://ca6gc1hoj4sot" path="res://resources/notes_crtcl.png" id="3_ds73y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qaey"]
+transparency = 1
+albedo_texture = ExtResource("3_ds73y")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_povkj"]
+size = Vector2(2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsw1t"]
+render_priority = 2
+transparency = 1
+albedo_color = Color(0.462745, 0.462745, 0.462745, 1)
+albedo_texture = ExtResource("2_ncybo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jg3p5"]
+size = Vector3(1.67037, 1, 0.188469)
+
+[node name="Note" type="CharacterBody3D"]
+script = ExtResource("1_jslr5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5621, 4.37722e-08, 0.0351218, 0.0266146, 1.01954, -1.18373, -0.0229173, 1.18403, 1.01929, -6.98492e-09, 0, -0.271891)
+visible = false
+material_override = SubResource("StandardMaterial3D_8qaey")
+mesh = SubResource("PlaneMesh_povkj")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.24992, 0, -0.0140496, 0, 1.25, 0, 0.0140496, 0, -1.24992, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dsw1t")
+mesh = SubResource("PlaneMesh_povkj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00366551)
+shape = SubResource("BoxShape3D_jg3p5")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00366551)
+shape = SubResource("BoxShape3D_jg3p5")

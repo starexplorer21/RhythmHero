@@ -1,5 +1,6 @@
 extends Node3D
 
+signal just_missed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +13,7 @@ func _process(delta):
 
 func _on_lane_miss_body_entered(body):
 	body.miss()
-
+	emit_signal("just_missed")
 
 func _on_lane_good_body_entered(body):
 	body.good()
@@ -21,6 +22,6 @@ func _on_lane_good_body_entered(body):
 func _on_lane_great_body_entered(body):
 	body.great()
 
-
 func _on_lane_perfect_body_entered(body):
 	body.perfect()
+	

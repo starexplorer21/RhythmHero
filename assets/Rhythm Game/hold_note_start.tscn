@@ -1,20 +1,20 @@
 [gd_scene load_steps=9 format=3 uid="uid://dq0fxfilulvx8"]
 
-[ext_resource type="Script" path="res://scripts/hold_note_start.gd" id="1_igsti"]
-[ext_resource type="Texture2D" uid="uid://b3uun0uane2tp" path="res://resources/notes_long.png" id="2_2r8yc"]
-[ext_resource type="Texture2D" uid="uid://ca6gc1hoj4sot" path="res://resources/notes_crtcl.png" id="3_qywox"]
+[ext_resource type="Script" path="res://scripts/hold_note_start.gd" id="1_g0mev"]
+[ext_resource type="Texture2D" uid="uid://b3uun0uane2tp" path="res://resources/notes_long.png" id="2_748yc"]
+[ext_resource type="Texture2D" uid="uid://ca6gc1hoj4sot" path="res://resources/notes_crtcl.png" id="3_21jd3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o46ah"]
 transparency = 1
 albedo_color = Color(0.462745, 0.462745, 0.462745, 1)
-albedo_texture = ExtResource("2_2r8yc")
+albedo_texture = ExtResource("2_748yc")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lepmf"]
 size = Vector2(2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45bgs"]
 transparency = 1
-albedo_texture = ExtResource("3_qywox")
+albedo_texture = ExtResource("3_21jd3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gq8ef"]
 size = Vector2(2, 1)
@@ -23,18 +23,19 @@ size = Vector2(2, 1)
 size = Vector3(1.78742, 1, 0.544785)
 
 [node name="hold_note_start" type="CharacterBody3D"]
-script = ExtResource("1_igsti")
+script = ExtResource("1_g0mev")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.24992, 0, -0.0140496, 0, 1.25, 0, 0.0140496, 0, -1.24992, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_o46ah")
 mesh = SubResource("PlaneMesh_lepmf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(-1.24981, 0.0106465, -0.0189305, 0.0212917, 0.815636, -0.946987, 0.00428661, -0.947167, -0.815693, -0.00244477, 0, 0.217499)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5621, 4.37722e-08, 0.0351218, 0.0266146, 1.01954, -1.18373, -0.0229173, 1.18403, 1.01929, -6.98492e-09, 0, -0.271891)
 visible = false
 material_override = SubResource("StandardMaterial3D_45bgs")
 mesh = SubResource("PlaneMesh_gq8ef")
+skeleton = NodePath("../MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00366551)

@@ -1,19 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://bffgwvgglc3t1"]
+[gd_scene load_steps=18 format=3 uid="uid://dfyxgennxq1s4"]
 
-[ext_resource type="Texture2D" uid="uid://cmvuia48w4vh6" path="res://resources/road2.png" id="1_mdubm"]
-[ext_resource type="Texture2D" uid="uid://b3g6ka5bke5o5" path="res://resources/default.png" id="2_x2yj1"]
-[ext_resource type="Texture2D" uid="uid://07aiysk230jf" path="res://resources/hit-area.png" id="3_seyps"]
-[ext_resource type="Script" path="res://scripts/GameManager.gd" id="4_m0ims"]
-[ext_resource type="PackedScene" uid="uid://dan5a8knvkhrm" path="res://assets/lane_judge.tscn" id="6_hmagr"]
-[ext_resource type="Texture2D" uid="uid://dhmvbancbu86n" path="res://resources/Judgements/Good.png" id="6_pb47b"]
-[ext_resource type="Texture2D" uid="uid://k14mijfcpv82" path="res://resources/Judgements/Great.png" id="7_fd0tb"]
-[ext_resource type="Texture2D" uid="uid://dnsihcfwsuogw" path="res://resources/Judgements/Miss.png" id="8_ku0vn"]
-[ext_resource type="Texture2D" uid="uid://dvsa0v315ka7k" path="res://resources/Judgements/Perfect.png" id="9_71sod"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_rbeo2"]
+[ext_resource type="Texture2D" uid="uid://cmvuia48w4vh6" path="res://resources/road2.png" id="2_gio23"]
+[ext_resource type="Texture2D" uid="uid://b3g6ka5bke5o5" path="res://resources/default.png" id="3_cs538"]
+[ext_resource type="Texture2D" uid="uid://07aiysk230jf" path="res://resources/hit-area.png" id="4_a7ibs"]
+[ext_resource type="PackedScene" uid="uid://c3krpy8p0se8o" path="res://assets/Rhythm Game/lane_judge.tscn" id="5_qjh1j"]
+[ext_resource type="Texture2D" uid="uid://dhmvbancbu86n" path="res://resources/Judgements/Good.png" id="6_0o7uw"]
+[ext_resource type="Texture2D" uid="uid://k14mijfcpv82" path="res://resources/Judgements/Great.png" id="7_46til"]
+[ext_resource type="Texture2D" uid="uid://dnsihcfwsuogw" path="res://resources/Judgements/Miss.png" id="8_tcxpf"]
+[ext_resource type="Texture2D" uid="uid://dvsa0v315ka7k" path="res://resources/Judgements/Perfect.png" id="9_c24xn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrqpv"]
 transparency = 1
-albedo_color = Color(0.364706, 0.364706, 0.364706, 1)
-albedo_texture = ExtResource("1_mdubm")
+depth_draw_mode = 1
+no_depth_test = true
+albedo_color = Color(0.364706, 0.364706, 0.364706, 0.407843)
+albedo_texture = ExtResource("2_gio23")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rc6nw"]
 
@@ -21,15 +23,15 @@ albedo_texture = ExtResource("1_mdubm")
 exposure_multiplier = 2.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5i5g"]
-albedo_texture = ExtResource("2_x2yj1")
+albedo_texture = ExtResource("3_cs538")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sgfrx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cf77e"]
 render_priority = 1
 transparency = 1
-albedo_color = Color(0.8, 0.905882, 1, 1)
-albedo_texture = ExtResource("3_seyps")
+albedo_color = Color(0.8, 0.905882, 1, 0.733333)
+albedo_texture = ExtResource("4_a7ibs")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0fgnh"]
 
@@ -37,7 +39,7 @@ albedo_texture = ExtResource("3_seyps")
 size = Vector3(1.79095, 1, 1)
 
 [node name="RhythmGame" type="Node3D"]
-script = ExtResource("4_m0ims")
+script = ExtResource("1_rbeo2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12181, 7.02043, -1.73509)
@@ -68,33 +70,36 @@ size = 10.0
 far = 37.54
 
 [node name="Background" type="MeshInstance3D" parent="."]
-transform = Transform3D(42, 0, 0, 0, 23.3741, -15.4124, 0, 15.4124, 23.3741, 0.0749443, -16.1988, -4.80364)
+transform = Transform3D(42, 0, 0, 0, 23.3741, -15.4124, 0, 15.4124, 23.3741, -0.65866, -16.1555, -5.08894)
 material_override = SubResource("StandardMaterial3D_y5i5g")
 gi_lightmap_scale = 3
 mesh = SubResource("PlaneMesh_sgfrx")
 
 [node name="Judger" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.24265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17165)
 
 [node name="Texture" type="MeshInstance3D" parent="Judger"]
-transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 0.33, 0.00575734, 0, -0.376809)
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 0.33, 0.00575734, 0, -0.979694)
 material_override = SubResource("StandardMaterial3D_cf77e")
 mesh = SubResource("PlaneMesh_0fgnh")
 
-[node name="LaneJudge" parent="Judger" instance=ExtResource("6_hmagr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.904038, 0, 0)
+[node name="Lane Judges" type="Node3D" parent="Judger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.700801)
 
-[node name="LaneJudge2" parent="Judger" instance=ExtResource("6_hmagr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96693, 0, 0)
+[node name="LaneJudge1" parent="Judger/Lane Judges" instance=ExtResource("5_qjh1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.904038, 0, 0.0709276)
 
-[node name="LaneJudge3" parent="Judger" instance=ExtResource("6_hmagr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04882, 0, 0)
+[node name="LaneJudge2" parent="Judger/Lane Judges" instance=ExtResource("5_qjh1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96693, 0, 0.0709274)
 
-[node name="LaneJudge4" parent="Judger" instance=ExtResource("6_hmagr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00168, 0, 0)
+[node name="LaneJudge3" parent="Judger/Lane Judges" instance=ExtResource("5_qjh1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04882, 0, 0.0709274)
+
+[node name="LaneJudge4" parent="Judger/Lane Judges" instance=ExtResource("5_qjh1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00168, 0, 0.0709276)
 
 [node name="Queuer" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0675447, 0.639265, 1.08686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0675447, 0.639265, 0.255388)
 
 [node name="LaneQueue1" type="Area3D" parent="Queuer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95, 0, -3)
@@ -134,22 +139,36 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Miss" type="Sprite2D" parent="Control"]
+modulate = Color(100, 100, 100, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(12, 14)
+texture = ExtResource("8_tcxpf")
+
 [node name="Good" type="Sprite2D" parent="Control"]
+show_behind_parent = true
+texture_filter = 1
 position = Vector2(14, 12)
-texture = ExtResource("6_pb47b")
+texture = ExtResource("6_0o7uw")
 
 [node name="Great" type="Sprite2D" parent="Control"]
+show_behind_parent = true
+texture_filter = 1
 position = Vector2(21, 11)
-texture = ExtResource("7_fd0tb")
-
-[node name="Miss" type="Sprite2D" parent="Control"]
-position = Vector2(12, 14)
-texture = ExtResource("8_ku0vn")
+texture = ExtResource("7_46til")
 
 [node name="Perfect" type="Sprite2D" parent="Control"]
+modulate = Color(1, 0, 0.866667, 1)
+show_behind_parent = true
+texture_filter = 1
 position = Vector2(20, 9)
-texture = ExtResource("9_71sod")
+texture = ExtResource("9_c24xn")
 
+[connection signal="just_missed" from="Judger/Lane Judges/LaneJudge1" to="." method="_on_lane_judge_1_just_missed"]
+[connection signal="just_missed" from="Judger/Lane Judges/LaneJudge2" to="." method="_on_lane_judge_2_just_missed"]
+[connection signal="just_missed" from="Judger/Lane Judges/LaneJudge3" to="." method="_on_lane_judge_3_just_missed"]
+[connection signal="just_missed" from="Judger/Lane Judges/LaneJudge4" to="." method="_on_lane_judge_4_just_missed"]
 [connection signal="body_entered" from="Queuer/LaneQueue1" to="." method="_on_lane_queue_1_body_entered"]
 [connection signal="body_entered" from="Queuer/LaneQueue2" to="." method="_on_lane_queue_2_body_entered"]
 [connection signal="body_entered" from="Queuer/LaneQueue3" to="." method="_on_lane_queue_3_body_entered"]

@@ -58,15 +58,15 @@ func _ready():
 	miss = $Control/Miss
 	reset_all()
 	load_map()
-	note = preload("res://assets/note.tscn")
-	hold_start = preload("res://assets/hold_note_start.tscn")
-	hold_inter = preload("res://assets/hold_note_intermediate.tscn")
-	hold_end = preload("res://assets/hold_note_end.tscn")
-	end = preload("res://assets/game_end.tscn")
+	note = preload("res://assets/Rhythm Game/note.tscn")
+	hold_start = preload("res://assets/Rhythm Game/hold_note_start.tscn")
+	hold_inter = preload("res://assets/Rhythm Game/hold_note_intermediate.tscn")
+	hold_end = preload("res://assets/Rhythm Game/hold_note_end.tscn")
+	end = preload("res://assets/Rhythm Game/game_end.tscn")
 	var music_player = AudioStreamPlayer.new()
 	music_player.stream = load(song)
 	add_child(music_player)
-	await get_tree().create_timer(1.1).timeout
+	await get_tree().create_timer(1.0).timeout
 	music_player.play()
 	hitsound_player.stream = load("res://resources/normal-hitnormal.wav")
 	add_child(hitsound_player)
@@ -216,15 +216,33 @@ func _physics_process(delta):
 
 func _on_lane_queue_1_body_entered(body):
 	lane1.push_front(body)
-
+	body.judge = "Miss"
 
 func _on_lane_queue_2_body_entered(body):
 	lane2.push_front(body)
-
+	body.judge = "Miss"
 
 func _on_lane_queue_3_body_entered(body):
 	lane3.push_front(body)
-
+	body.judge = "Miss"
 
 func _on_lane_queue_4_body_entered(body):
 	lane4.push_front(body)
+	body.judge = "Miss"
+	
+func _on_lane_judge_1_just_missed():
+	misses += 1
+	play_hit(miss)
+
+func _on_lane_judge_2_just_missed():
+	misses += 1
+	play_hit(miss)
+
+func _on_lane_judge_3_just_missed():
+	misses += 1
+	play_hit(miss)
+
+func _on_lane_judge_4_just_missed():
+	misses += 1
+	play_hit(miss)
+

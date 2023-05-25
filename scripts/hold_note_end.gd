@@ -3,6 +3,7 @@ extends CharacterBody3D
 #0.36 for 1 second to pass the entirety of the screen
 var move = Vector3(0,0,0.36)
 var judge = "Miss"
+var playing_animation = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,24 +21,31 @@ func hit():
 	queue_free()
 	
 func miss():
-	judge = "Miss"
+	if !playing_animation: 
+		judge = "Miss"
+		queue_free()
 
 func good():
-	judge = "Good"
+	if !playing_animation: 
+		judge = "Good"
 
 func great():
-	judge = "Great"
+	if !playing_animation: 
+		judge = "Great"
 	
 func perfect():
-	judge = "Perfect"
-	hit()
+	if !playing_animation: 
+		judge = "Perfect"
+		hit()
 	
 func get_judge():
 	return judge
 
 func release():
-	$MeshInstance3D/MeshInstance3D.visible = true
-	await get_tree().create_timer(0.05).timeout
+	playing_animation = true
+	$MeshInstance3D.visible = false
+	$MeshInstance3D2.visible = true
+	await get_tree().create_timer(0.02).timeout
 	queue_free()
 	
 func get_type():
