@@ -23,7 +23,9 @@ var lane3_is_held = false
 var lane4 = []
 var lane4_is_held = false
 
-var path = "res://maps/"+Global.map+"/"
+var map_folder: String
+
+var path = "res://maps/"+map_folder+"/"
 var song = path + "song.wav"
 var map = path + "map.json"
 
@@ -49,6 +51,12 @@ var perfect
 var great 
 var good 
 var miss
+
+func assign_map(change_map):
+	map_folder = change_map
+	path = "res://maps/"+map_folder+"/"
+	song = path + "song.wav"
+	map = path + "map.json"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -132,9 +140,10 @@ func load_row():
 				
 			elif read_note == 5:
 				await get_tree().create_timer(1.3).timeout
-				var score = (perfects * 5.0) + (greats * 4.0) + (goods * 3.0) + (misses * 2.0)
+				var score = (perfects * 5.0) + (greats * 4.0) + (goods * 3.0)
 				print(score/total_score)
 				queue_free()
+				get_tree().change_scene_to_file("res://assets/navigation.tscn")
 		
 func judge_lane(l):
 	var lane = []

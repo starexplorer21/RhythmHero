@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pvc2qb3nhftl"
+path="res://.godot/imported/song.wav-3475359a779e0436cf98eb480eb4deaa.sample"
+
+[deps]
+
+source_file="res://maps/Don't Fight The Music/song.wav"
+dest_files=["res://.godot/imported/song.wav-3475359a779e0436cf98eb480eb4deaa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

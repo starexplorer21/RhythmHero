@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bvh7q71hb5w4p"]
+
+[ext_resource type="FontFile" path="res://resources/Doom2016Text-GOlBq.ttf" id="1_knpf1"]
+
+[resource]
+default_font = ExtResource("1_knpf1")
+default_font_size = 75

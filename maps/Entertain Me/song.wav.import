@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://3ia6ums1yw1o"
+path="res://.godot/imported/song.wav-bb82e9fb1f4176f907ea4f31814ab2ca.sample"
+
+[deps]
+
+source_file="res://maps/Entertain Me/song.wav"
+dest_files=["res://.godot/imported/song.wav-bb82e9fb1f4176f907ea4f31814ab2ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

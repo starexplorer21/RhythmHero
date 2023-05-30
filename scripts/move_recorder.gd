@@ -1,11 +1,12 @@
 extends Node3D
 
+var map_folder = "Don't Fight The Music"
 
 var bpm = 117
 #var time_between_notes = ((30.0)/bpm)/32.0
 var timer = 0
 
-var path = "res://maps/"+Global.map+"/"
+var path = "res://maps/"+map_folder+"/"
 var song = path + "song.wav"
 var map = path + "map.json"
 
@@ -50,7 +51,6 @@ func save():
 	print("Saved")
 
 func _physics_process(delta):
-	#if timer >= time_between_notes:
 	lane1.push_back(queued_input_lane_1)
 	if is_lane_1_held:
 		queued_input_lane_1 = 3
@@ -77,8 +77,6 @@ func _physics_process(delta):
 	else:
 		queued_input_lane_4 = 0
 		
-	#timer = 0
-	#timer += delta
 	
 	if Input.is_action_just_pressed("lane1") and !is_lane_1_held:
 		queued_input_lane_1 = 1
