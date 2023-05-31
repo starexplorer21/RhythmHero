@@ -23,6 +23,12 @@ buses/default_bus_layout=""
 
 Global="*res://global.gd"
 
+[display]
+
+window/vsync/vsync_mode=2
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
 [input]
 
 lane1={

@@ -52,6 +52,9 @@ var great
 var good 
 var miss
 
+var combo = 0
+var combo_max = 0
+
 func assign_map(change_map):
 	map_folder = change_map
 	path = "res://maps/"+map_folder+"/"
@@ -89,6 +92,7 @@ func load_map():
 	
 func play_hit(judge):
 	reset_all()
+	$Control/Combo.text = str(combo)
 	for i in range(5):
 		judge.modulate.a += 0.2
 		await get_tree().create_timer(0.01).timeout
@@ -142,8 +146,7 @@ func load_row():
 				await get_tree().create_timer(1.3).timeout
 				var score = (perfects * 5.0) + (greats * 4.0) + (goods * 3.0)
 				print(score/total_score)
-				queue_free()
-				get_tree().change_scene_to_file("res://assets/navigation.tscn")
+				Global.goto_navigation()
 		
 func judge_lane(l):
 	var lane = []
@@ -187,7 +190,8 @@ func judge_lane(l):
 				
 		if Input.is_action_just_released(laneHit) && lane_is_held:
 			calc_judge(lane[lane_pointer].get_judge())
-			lane[lane_pointer].release()
+			if lane[lane_pointer].get_type() != "note":
+				lane[lane_pointer].release()
 			lane.pop_back()
 			lane_is_held = false
 			
@@ -202,17 +206,25 @@ func judge_lane(l):
 
 func calc_judge(judgement):
 	if judgement == "Perfect":
+		combo += 1
+		if combo > combo_max:
+			combo_max = combo
 		perfects += 1
 		play_hit(perfect)
 	elif judgement == "Great":
+		combo += 1
+		if combo > combo_max:
+			combo_max = combo
 		greats += 1
 		play_hit(great)
 	elif judgement == "Good":
 		goods += 1
 		play_hit(good)
+		combo = 0
 	elif judgement == "Miss":
 		misses += 1
 		play_hit(miss)
+		combo = 0
 
 func _physics_process(delta):
 	judge_lane(1)

@@ -1,6 +1,6 @@
 extends Node3D
 
-var map_folder = "Don't Fight The Music"
+var map_folder = "Butter"
 
 var bpm = 117
 #var time_between_notes = ((30.0)/bpm)/32.0

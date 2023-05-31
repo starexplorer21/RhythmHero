@@ -170,7 +170,7 @@ texture_filter = 1
 position = Vector2(20, 9)
 texture = ExtResource("9_c24xn")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+[node name="ComboLabel" type="RichTextLabel" parent="Control"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_0qllm")
 layout_mode = 0
@@ -180,6 +180,15 @@ offset_right = 757.0
 offset_bottom = 76.0
 theme = ExtResource("10_eu4b5")
 text = "COMBO"
+
+[node name="Combo" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = -163.0
+offset_right = 430.0
+offset_bottom = -76.0
+theme = ExtResource("10_eu4b5")
+horizontal_alignment = 2
 
 [connection signal="just_missed" from="Judger/Lane Judges/LaneJudge1" to="." method="_on_lane_judge_1_just_missed"]
 [connection signal="just_missed" from="Judger/Lane Judges/LaneJudge2" to="." method="_on_lane_judge_2_just_missed"]

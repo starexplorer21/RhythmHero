@@ -2,10 +2,11 @@ extends Node
 
 var current_scene
 var map
+var root
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var root = get_tree().root
+	root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 func goto_navigation():
@@ -31,8 +32,6 @@ func _deferred_goto_navigation():
 	# Instance the new scene.
 	current_scene = s.instantiate()
 	
-	
-
 	# Add it to the active scene, as child of root.
 	get_tree().root.add_child(current_scene)
 

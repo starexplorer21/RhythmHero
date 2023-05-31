@@ -21,26 +21,26 @@ shape = SubResource("BoxShape3D_snkdh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, 1.58672)
 
 [node name="LaneHitbox" type="CollisionShape3D" parent="LaneGreat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -2.69945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -2.98624)
 shape = SubResource("BoxShape3D_bj1iv")
 
 [node name="LaneHitbox2" type="CollisionShape3D" parent="LaneGreat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -1.35461)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -1.07055)
 shape = SubResource("BoxShape3D_bj1iv")
 
 [node name="LaneGood" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, 1.48296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, 1.57563)
 
 [node name="LaneHitbox" type="CollisionShape3D" parent="LaneGood"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -2.9571)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -3.5127)
 shape = SubResource("BoxShape3D_bj1iv")
 
 [node name="LaneHitbox2" type="CollisionShape3D" parent="LaneGood"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -0.896903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -0.536495)
 shape = SubResource("BoxShape3D_bj1iv")
 
 [node name="LaneMiss" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, -2.06945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, -1.41439)
 
 [node name="LaneHitbox2" type="CollisionShape3D" parent="LaneMiss"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, 2.99252)
