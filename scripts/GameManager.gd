@@ -55,11 +55,14 @@ var miss
 var combo = 0
 var combo_max = 0
 
-func assign_map(change_map):
+func assign_map(change_map, difficulty):
 	map_folder = change_map
 	path = "res://maps/"+map_folder+"/"
 	song = path + "song.wav"
-	map = path + "map.json"
+	if difficulty == "easy":
+		map = path + "easy.json"
+	elif difficulty == "normal": 
+		map = path + "map.json"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -145,8 +148,7 @@ func load_row():
 			elif read_note == 5:
 				await get_tree().create_timer(1.3).timeout
 				var score = (perfects * 5.0) + (greats * 4.0) + (goods * 3.0)
-				print(score/total_score)
-				Global.goto_navigation()
+				Global.goto_navigation(score/total_score)
 		
 func judge_lane(l):
 	var lane = []

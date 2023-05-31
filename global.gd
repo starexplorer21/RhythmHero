@@ -3,13 +3,15 @@ extends Node
 var current_scene
 var map
 var root
+var difficulty = "easy"
+var unlocked_level2 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 
-func goto_navigation():
+func goto_navigation(accuracy):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
 	# Deleting the current scene at this point is
@@ -18,6 +20,9 @@ func goto_navigation():
 
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
+	
+	if current_scene.map_folder == "Paradise" and accuracy > 0.7:
+		unlocked_level2 = true
 
 	call_deferred("_deferred_goto_navigation")
 
@@ -61,7 +66,7 @@ func _deferred_goto_game(map):
 	# Instance the new scene.
 	current_scene = s.instantiate()
 	
-	current_scene.assign_map(map)
+	current_scene.assign_map(map, difficulty)
 
 	# Add it to the active scene, as child of root.
 	get_tree().root.add_child(current_scene)
