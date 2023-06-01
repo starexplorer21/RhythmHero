@@ -1,0 +1,185 @@
+[gd_scene load_steps=13 format=3 uid="uid://8bovxpsr8mub"]
+
+[ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_574t1"]
+[ext_resource type="Script" path="res://assets/song_select.gd" id="1_by3f6"]
+[ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="2_o0wiy"]
+[ext_resource type="Texture2D" uid="uid://b7clt8uycceqv" path="res://maps/Awake Now/cover.png" id="3_d6r0g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta4dw"]
+texture = ExtResource("1_574t1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mtu18"]
+sources/0 = SubResource("TileSetAtlasSource_ta4dw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_44wxb"]
+
+[sub_resource type="Theme" id="Theme_spvda"]
+default_font = ExtResource("2_o0wiy")
+default_font_size = 16
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0.00392157, 0, 0, 0.466667)
+Label/colors/shader = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_44wxb")
+
+[sub_resource type="Theme" id="Theme_ugo1b"]
+default_font = ExtResource("2_o0wiy")
+default_font_size = 16
+Label/colors/font_color = Color(0.572549, 0.952941, 0.917647, 1)
+Label/colors/font_outline_color = Color(2.31028e-06, 0.939696, 0.962697, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0.992157, 0.466667)
+Label/colors/shader = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_44wxb")
+
+[sub_resource type="Theme" id="Theme_tchtg"]
+default_font = ExtResource("2_o0wiy")
+default_font_size = 16
+
+[sub_resource type="Theme" id="Theme_pqxti"]
+default_font = ExtResource("2_o0wiy")
+default_font_size = 16
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xgcoy"]
+
+[node name="Song_Select" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_by3f6")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_mtu18")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262147, 131072, 4, -196611, 131072, 5, -131075, 131072, 5, -65539, 131072, 5, -3, 131072, 5, 65533, 131072, 5, 131069, 131072, 5, 196605, 131072, 5, -262146, 131072, 4, -196610, 131072, 5, -131074, 131072, 5, -65538, 131072, 5, -2, 131072, 5, 65534, 131072, 5, 131070, 131072, 5, 196606, 131072, 5, -262145, 131072, 4, -196609, 131072, 5, -131073, 131072, 5, -65537, 131072, 5, -1, 131072, 5, 65535, 131072, 5, 131071, 131072, 5, 196607, 131072, 5, -327680, 131072, 4, -262144, 131072, 5, -196608, 131072, 5, -131072, 131072, 5, -65536, 131072, 5, 0, 131072, 5, 65536, 131072, 5, 131072, 131072, 5, -327679, 131072, 4, -262143, 131072, 5, -196607, 131072, 5, -131071, 131072, 5, -65535, 131072, 5, 1, 131072, 5, 65537, 131072, 5, 131073, 131072, 5, -327678, 131072, 4, -262142, 131072, 5, -196606, 131072, 5, -131070, 131072, 5, -65534, 131072, 5, 2, 131072, 5, 65538, 131072, 5, 131074, 131072, 5, 196610, 131072, 5, 262146, 131072, 6, 262145, 131072, 6, 262144, 131072, 6, 327679, 131072, 6, 327678, 131072, 6, 327677, 131072, 6, 262141, 131072, 5, 262142, 131072, 5, 262143, 131072, 5, 196608, 131072, 5, 196609, 131072, 5, -262148, 131072, 4, -262149, 131072, 4, -262150, 131072, 4, -327677, 131072, 4, -327676, 131072, 4, -327675, 131072, 4, -327674, 196608, 4, -262138, 196608, 5, -196602, 196608, 5, -131066, 196608, 5, -65530, 196608, 5, 6, 196608, 5, 65542, 196608, 5, 131078, 196608, 5, 196614, 196608, 5, 262150, 196608, 6, 262149, 131072, 6, 262148, 131072, 6, 262147, 131072, 6, 327676, 131072, 6, 327675, 131072, 6, 327674, 131072, 6, -262151, 65536, 4, -196615, 65536, 5, -131079, 65536, 5, -65543, 65536, 5, -7, 65536, 5, 65529, 65536, 5, 131065, 65536, 5, 196601, 65536, 5, 262137, 65536, 5, 327673, 65536, 6, -196614, 131072, 5, -131078, 131072, 5, -65542, 131072, 5, -6, 131072, 5, 65530, 131072, 5, 131066, 131072, 5, 196602, 131072, 5, 262138, 131072, 5, -196613, 131072, 5, -131077, 131072, 5, -65541, 131072, 5, -5, 131072, 5, 65531, 131072, 5, 131067, 131072, 5, 196603, 131072, 5, 262139, 131072, 5, -196612, 131072, 5, -131076, 131072, 5, -65540, 131072, 5, -4, 131072, 5, 65532, 131072, 5, 131068, 131072, 5, 196604, 131072, 5, 262140, 131072, 5, -262141, 131072, 5, -196605, 131072, 5, -131069, 131072, 5, -65533, 131072, 5, 3, 131072, 5, 65539, 131072, 5, 131075, 131072, 5, 196611, 131072, 5, -262140, 131072, 5, -196604, 131072, 5, -131068, 131072, 5, -65532, 131072, 5, 4, 131072, 5, 65540, 131072, 5, 131076, 131072, 5, 196612, 131072, 5, -262139, 131072, 5, -196603, 131072, 5, -131067, 131072, 5, -65531, 131072, 5, 5, 131072, 5, 65541, 131072, 5, 131077, 131072, 5, 196613, 131072, 5)
+
+[node name="Song_name" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -95.0
+offset_top = -67.0
+offset_right = 99.0
+offset_bottom = 48.0
+theme = SubResource("Theme_spvda")
+text = "DON'T FIGHT THE MUSIC"
+horizontal_alignment = 1
+
+[node name="Cover" type="Sprite2D" parent="."]
+position = Vector2(-50.5, -0.4375)
+scale = Vector2(0.12027, 0.111993)
+texture = ExtResource("3_d6r0g")
+
+[node name="Artist" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = -42.0
+offset_right = 100.0
+offset_bottom = 16.0
+theme = SubResource("Theme_ugo1b")
+text = "Artist: Yonosuke"
+fit_content = true
+
+[node name="Suggested" type="RichTextLabel" parent="."]
+offset_left = -100.0
+offset_top = 48.0
+offset_right = 92.0
+offset_bottom = 66.0
+theme = SubResource("Theme_tchtg")
+text = "Suggested By: Addy Wei"
+scroll_active = false
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = -3.0
+offset_right = 95.0
+offset_bottom = 38.0
+theme = SubResource("Theme_pqxti")
+theme_override_font_sizes/font_size = 16
+text = "PLAY"
+icon = SubResource("CanvasTexture_xgcoy")
+icon_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

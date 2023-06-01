@@ -1,5 +1,7 @@
 extends Node2D
 
+var song_name
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Global.unlocked_level2:
@@ -19,31 +21,50 @@ func open_level2():
 	$TileMap2.set_cell(0, Vector2i(57, 10), 5, Vector2i(0,0))
 	
 func _on_opponent_1_hitbox_body_entered(body):
-	Global.goto_game("Awake Now")
-
+	song_name = "Awake Now"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
 
 func _on_opponent_5_hitbox_body_entered(body):
-	Global.goto_game("Getcha")
+	song_name = "Getcha"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
 
 
 func _on_opponent_4_hitbox_body_entered(body):
-	Global.goto_game("Paradise")
+	song_name = "Paradise"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
 
 
 func _on_opponent_3_hitbox_body_entered(body):
-	Global.goto_game("Daybreak Frontline")
+	song_name = "Daybreak Frontline"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
 
 
 func _on_opponent_2_hitbox_body_entered(body):
-	Global.goto_game("Entertain Me")
+	song_name = "Entertain Me"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
 
 
 func _on_opponent_6_hitbox_body_entered(body):
-	Global.goto_game("Infinitely Gray")
+	song_name = "Infinitely Gray"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
 
 
 func _on_opponent_7_hitbox_body_entered(body):
-	Global.goto_game("Don't Fight The Music")
+	song_name = "Don't Fight The Music"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
 
 func _on_opponent_8_hitbox_body_entered(body):
-	Global.goto_game("Lower")
+	song_name = "Lower"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
+
+
+func _on_song_select_play():
+	Global.goto_game(song_name)
