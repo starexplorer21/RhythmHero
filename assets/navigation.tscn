@@ -829,4 +829,5 @@ zoom = Vector2(4, 4)
 [connection signal="body_entered" from="Opponent6/Opponent6Hitbox" to="." method="_on_opponent_6_hitbox_body_entered"]
 [connection signal="body_entered" from="Opponent7/Opponent7Hitbox" to="." method="_on_opponent_7_hitbox_body_entered"]
 [connection signal="body_entered" from="Opponent8/Opponent8Hitbox" to="." method="_on_opponent_8_hitbox_body_entered"]
+[connection signal="closed" from="Player/Song_Select" to="." method="_on_song_select_closed"]
 [connection signal="play" from="Player/Song_Select" to="." method="_on_song_select_play"]

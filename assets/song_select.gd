@@ -1,6 +1,7 @@
 extends Control
 
 signal play
+signal closed
 
 var metadata_dict
 
@@ -39,3 +40,7 @@ func load_assets(song):
 		$Suggested.text = "Suggester:"+ suggested
 	else:
 		$Suggested.text = ""
+
+
+func _on_button_2_pressed():
+	emit_signal("closed")

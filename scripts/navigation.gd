@@ -24,47 +24,59 @@ func _on_opponent_1_hitbox_body_entered(body):
 	song_name = "Awake Now"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 func _on_opponent_5_hitbox_body_entered(body):
 	song_name = "Getcha"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 
 func _on_opponent_4_hitbox_body_entered(body):
 	song_name = "Paradise"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 
 func _on_opponent_3_hitbox_body_entered(body):
 	song_name = "Daybreak Frontline"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 
 func _on_opponent_2_hitbox_body_entered(body):
 	song_name = "Entertain Me"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 
 func _on_opponent_6_hitbox_body_entered(body):
 	song_name = "Infinitely Gray"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 
 func _on_opponent_7_hitbox_body_entered(body):
 	song_name = "Don't Fight The Music"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 func _on_opponent_8_hitbox_body_entered(body):
 	song_name = "Lower"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 
 func _on_song_select_play():
 	Global.goto_game(song_name)
+
+func _on_song_select_closed():
+	$Player/Song_Select.visible = false
+	$Player.can_move = true

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://bvh7q71hb5w4p"]
 
-[ext_resource type="FontFile" path="res://resources/Doom2016Text-GOlBq.ttf" id="1_knpf1"]
+[ext_resource type="FontFile" uid="uid://be51c01suiwbr" path="res://resources/Doom2016Text-GOlBq.ttf" id="1_knpf1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_44wxb"]
 

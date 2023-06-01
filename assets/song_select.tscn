@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8bovxpsr8mub"]
+[gd_scene load_steps=14 format=3 uid="uid://8bovxpsr8mub"]
 
 [ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_574t1"]
 [ext_resource type="Script" path="res://assets/song_select.gd" id="1_by3f6"]
@@ -117,6 +117,9 @@ default_font_size = 16
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xgcoy"]
 
+[sub_resource type="Theme" id="Theme_g0qh6"]
+default_font = ExtResource("2_o0wiy")
+
 [node name="Song_Select" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -162,6 +165,7 @@ text = "Artist: Yonosuke"
 fit_content = true
 
 [node name="Suggested" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = -100.0
 offset_top = 48.0
 offset_right = 92.0
@@ -182,4 +186,17 @@ text = "PLAY"
 icon = SubResource("CanvasTexture_xgcoy")
 icon_alignment = 1
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -73.0
+offset_right = -87.0
+offset_bottom = -48.0
+scale = Vector2(0.629381, 0.515401)
+theme = SubResource("Theme_g0qh6")
+text = "X"
+text_overrun_behavior = 1
+clip_text = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
