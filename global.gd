@@ -3,7 +3,7 @@ extends Node
 var current_scene
 var map
 var root
-var difficulty = "easy"
+var difficulty = "normal"
 var unlocked_level2 = false
 
 # Called when the node enters the scene tree for the first time.
