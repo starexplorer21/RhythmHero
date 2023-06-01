@@ -49,3 +49,9 @@ func release():
 	
 func get_type():
 	return "hold_start"
+	
+func stop():
+	set_physics_process(false)
+	
+func resume():
+	set_physics_process(true)

@@ -80,3 +80,34 @@ func _on_song_select_play():
 func _on_song_select_closed():
 	$Player/Song_Select.visible = false
 	$Player.can_move = true
+
+
+func _on_pause_pressed():
+	$Player.can_move = false
+	show_pause()
+	
+func show_pause():
+	$Player/Continue.visible = true
+	$Player/Save.visible = true
+	$Player/Quit.visible = true
+	$Player/Continue.disabled = false
+	$Player/Save.disabled = false
+	$Player/Quit.disabled = false
+
+
+func _on_continue_pressed():
+	$Player.can_move = true
+	$Player/Continue.visible = false
+	$Player/Save.visible = false
+	$Player/Quit.visible = false
+	$Player/Continue.disabled = true
+	$Player/Save.disabled = true
+	$Player/Quit.disabled = true
+
+
+func _on_save_pressed():
+	pass # Replace with function body.
+
+
+func _on_quit_pressed():
+	pass # Replace with function body.

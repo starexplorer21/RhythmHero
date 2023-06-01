@@ -55,3 +55,9 @@ func get_type():
 func _on_area_3d_body_entered(body):
 	if body.get_judge() == "hold_start":
 		release()
+		
+func stop():
+	set_physics_process(false)
+	
+func resume():
+	set_physics_process(true)

@@ -37,10 +37,10 @@ var hold_end
 var end
 var map_position = 0
 
-var bpm = 117
-var divisions = 32
-var time = 120.0
+var audio_position
+var paused = false
 var hitsound_player = AudioStreamPlayer.new()
+var music_player
 var perfects = 0
 var greats = 0
 var goods = 0
@@ -77,11 +77,12 @@ func _ready():
 	hold_inter = preload("res://assets/Rhythm Game/hold_note_intermediate.tscn")
 	hold_end = preload("res://assets/Rhythm Game/hold_note_end.tscn")
 	end = preload("res://assets/Rhythm Game/game_end.tscn")
-	var music_player = AudioStreamPlayer.new()
+	music_player = AudioStreamPlayer.new()
 	music_player.stream = load(song)
 	add_child(music_player)
 	await get_tree().create_timer(1.0).timeout
-	music_player.play()
+	if !paused:
+		music_player.play()
 	hitsound_player.stream = load("res://resources/normal-hitnormal.wav")
 	add_child(hitsound_player)
 
@@ -121,6 +122,7 @@ func load_row():
 			if read_note == 1:
 				var cur_note = note.instantiate()
 				add_child(cur_note)
+				cur_note.add_to_group("to_pause")
 				cur_note.position.x = lane_x[i]
 				cur_note.position.z = start
 				total_score += 5
@@ -128,6 +130,7 @@ func load_row():
 			elif read_note == 2:
 				var cur_note = hold_start.instantiate()
 				add_child(cur_note)
+				cur_note.add_to_group("to_pause")
 				cur_note.position.x = lane_x[i]
 				cur_note.position.z = start
 				total_score += 5
@@ -135,12 +138,14 @@ func load_row():
 			elif read_note == 3:
 				var cur_note = hold_inter.instantiate()
 				add_child(cur_note)
+				cur_note.add_to_group("to_pause")
 				cur_note.position.x = lane_x[i]
 				cur_note.position.z = start
 			
 			elif read_note == 4:
 				var cur_note = hold_end.instantiate()
 				add_child(cur_note)
+				cur_note.add_to_group("to_pause")
 				cur_note.position.x = lane_x[i]
 				cur_note.position.z = start
 				total_score += 5
@@ -269,3 +274,39 @@ func _on_lane_judge_4_just_missed():
 	misses += 1
 	play_hit(miss)
 
+func _on_pause_pressed():
+	get_tree().call_group("to_pause", "stop")
+	paused = true
+	$Control/Continue.visible = true
+	$Control/Restart.visible = true
+	$Control/Quit.visible = true
+	$Control/Continue.disabled = false
+	$Control/Restart.disabled = false
+	$Control/Quit.disabled = false
+	
+
+func _on_restart_pressed():
+	Global.goto_game(map_folder)
+	
+func stop():
+	set_physics_process(false)
+	audio_position = music_player.get_playback_position()
+	music_player.stop()
+	
+func resume():
+	set_physics_process(true)
+	music_player.play(audio_position)
+	
+func _on_continue_pressed():
+	get_tree().call_group("to_pause", "resume")
+	paused = false
+	$Control/Continue.visible = false
+	$Control/Restart.visible = false
+	$Control/Quit.visible = false
+	$Control/Continue.disabled = true
+	$Control/Restart.disabled = true
+	$Control/Quit.disabled = true
+
+
+func _on_quit_pressed():
+	Global.goto_navigation(0.0)

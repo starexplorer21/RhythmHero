@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dfyxgennxq1s4"]
+[gd_scene load_steps=22 format=3 uid="uid://dfyxgennxq1s4"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_rbeo2"]
 [ext_resource type="Texture2D" uid="uid://cmvuia48w4vh6" path="res://resources/road2.png" id="2_gio23"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dnsihcfwsuogw" path="res://resources/Judgements/Miss.png" id="8_tcxpf"]
 [ext_resource type="Texture2D" uid="uid://dvsa0v315ka7k" path="res://resources/Judgements/Perfect.png" id="9_c24xn"]
 [ext_resource type="Theme" uid="uid://bvh7q71hb5w4p" path="res://assets/Rhythm Game/RhythmGame.tres" id="10_eu4b5"]
+[ext_resource type="Texture2D" uid="uid://dciylkau8g62n" path="res://resources/pause.png" id="11_ja52k"]
+[ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="12_vb273"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrqpv"]
 transparency = 1
@@ -39,7 +41,10 @@ albedo_texture = ExtResource("4_a7ibs")
 [sub_resource type="BoxShape3D" id="BoxShape3D_y28hd"]
 size = Vector3(1.79095, 1, 1)
 
-[node name="RhythmGame" type="Node3D"]
+[sub_resource type="Theme" id="Theme_l36yw"]
+default_font = ExtResource("12_vb273")
+
+[node name="RhythmGame" type="Node3D" groups=["to_pause"]]
 script = ExtResource("1_rbeo2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -71,7 +76,7 @@ size = 10.0
 far = 37.54
 
 [node name="Background" type="MeshInstance3D" parent="."]
-transform = Transform3D(42, 0, 0, 0, 23.3741, -15.4124, 0, 15.4124, 23.3741, -0.65866, -16.1555, -5.08894)
+transform = Transform3D(42, 0, 0, 0, 23.3741, -15.4124, 0, 15.4124, 23.3741, -0.0755072, -16.2119, -3.89052)
 material_override = SubResource("StandardMaterial3D_y5i5g")
 gi_lightmap_scale = 3
 mesh = SubResource("PlaneMesh_sgfrx")
@@ -85,7 +90,7 @@ material_override = SubResource("StandardMaterial3D_cf77e")
 mesh = SubResource("PlaneMesh_0fgnh")
 
 [node name="Lane Judges" type="Node3D" parent="Judger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.700801)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.591705)
 
 [node name="LaneJudge1" parent="Judger/Lane Judges" instance=ExtResource("5_qjh1j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.904038, 0, 0.0709276)
@@ -188,6 +193,55 @@ theme = ExtResource("10_eu4b5")
 text = "0"
 horizontal_alignment = 2
 
+[node name="Pause" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -554.0
+offset_top = -303.0
+offset_right = -34.0
+offset_bottom = 217.0
+scale = Vector2(0.12, 0.12)
+icon = ExtResource("11_ja52k")
+
+[node name="Continue" type="Button" parent="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -137.0
+offset_top = -218.0
+offset_right = -58.0
+offset_bottom = -187.0
+scale = Vector2(3.722, 3.56823)
+theme = SubResource("Theme_l36yw")
+disabled = true
+text = "Continue"
+
+[node name="Restart" type="Button" parent="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -125.0
+offset_top = -76.0
+offset_right = -54.0
+offset_bottom = -45.0
+scale = Vector2(3.6485, 3.44707)
+theme = SubResource("Theme_l36yw")
+disabled = true
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -133.0
+offset_top = 71.0
+offset_right = -54.0
+offset_bottom = 102.0
+scale = Vector2(3.56, 3)
+theme = SubResource("Theme_l36yw")
+disabled = true
+text = "Quit"
+
 [connection signal="just_missed" from="Judger/Lane Judges/LaneJudge1" to="." method="_on_lane_judge_1_just_missed"]
 [connection signal="just_missed" from="Judger/Lane Judges/LaneJudge2" to="." method="_on_lane_judge_2_just_missed"]
 [connection signal="just_missed" from="Judger/Lane Judges/LaneJudge3" to="." method="_on_lane_judge_3_just_missed"]
@@ -196,3 +250,7 @@ horizontal_alignment = 2
 [connection signal="body_entered" from="Queuer/LaneQueue2" to="." method="_on_lane_queue_2_body_entered"]
 [connection signal="body_entered" from="Queuer/LaneQueue3" to="." method="_on_lane_queue_3_body_entered"]
 [connection signal="body_entered" from="Queuer/LaneQueue4" to="." method="_on_lane_queue_4_body_entered"]
+[connection signal="pressed" from="Control/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

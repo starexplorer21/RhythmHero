@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://8bovxpsr8mub"]
+[gd_scene load_steps=13 format=3 uid="uid://b6knaoux6kdbo"]
 
 [ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_574t1"]
 [ext_resource type="Script" path="res://assets/song_select.gd" id="1_by3f6"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="2_o0wiy"]
-[ext_resource type="Texture2D" uid="uid://b7clt8uycceqv" path="res://maps/Awake Now/cover.png" id="3_d6r0g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta4dw"]
 texture = ExtResource("1_574t1")
@@ -147,13 +146,12 @@ offset_top = -67.0
 offset_right = 99.0
 offset_bottom = 48.0
 theme = SubResource("Theme_spvda")
-text = "DON'T FIGHT THE MUSIC"
+text = "Title"
 horizontal_alignment = 1
 
 [node name="Cover" type="Sprite2D" parent="."]
 position = Vector2(-50.5, -0.4375)
 scale = Vector2(0.12027, 0.111993)
-texture = ExtResource("3_d6r0g")
 
 [node name="Artist" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -161,7 +159,7 @@ offset_top = -42.0
 offset_right = 100.0
 offset_bottom = 16.0
 theme = SubResource("Theme_ugo1b")
-text = "Artist: Yonosuke"
+text = "artist"
 fit_content = true
 
 [node name="Suggested" type="RichTextLabel" parent="."]
@@ -171,7 +169,7 @@ offset_top = 48.0
 offset_right = 92.0
 offset_bottom = 66.0
 theme = SubResource("Theme_tchtg")
-text = "Suggested By: Addy Wei"
+text = "Suggested By:"
 scroll_active = false
 
 [node name="Button" type="Button" parent="."]

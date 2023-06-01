@@ -44,3 +44,9 @@ func get_type():
 func _on_area_3d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body.get_type() == "hold_start":
 		release()
+		
+func stop():
+	set_physics_process(false)
+	
+func resume():
+	set_physics_process(true)

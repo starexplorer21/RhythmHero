@@ -31,3 +31,9 @@ func get_judge():
 
 func get_type():
 	return "normal"
+
+func stop():
+	set_physics_process(false)
+	
+func resume():
+	set_physics_process(true)

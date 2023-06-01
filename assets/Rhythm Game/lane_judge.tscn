@@ -14,14 +14,14 @@ script = ExtResource("1_0bfsi")
 [node name="LanePerfect" type="Area3D" parent="."]
 
 [node name="LaneHitbox" type="CollisionShape3D" parent="LanePerfect"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.820023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.62269)
 shape = SubResource("BoxShape3D_snkdh")
 
 [node name="LaneGreat" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, 1.58672)
 
 [node name="LaneHitbox" type="CollisionShape3D" parent="LaneGreat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -3.29696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -3.15691)
 shape = SubResource("BoxShape3D_bj1iv")
 
 [node name="LaneHitbox2" type="CollisionShape3D" parent="LaneGreat"]
@@ -32,7 +32,7 @@ shape = SubResource("BoxShape3D_bj1iv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93988, 0, 1.57563)
 
 [node name="LaneHitbox" type="CollisionShape3D" parent="LaneGood"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -3.87456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931742, 0, -3.68337)
 shape = SubResource("BoxShape3D_bj1iv")
 
 [node name="LaneHitbox2" type="CollisionShape3D" parent="LaneGood"]
