@@ -110,4 +110,4 @@ func _on_save_pressed():
 
 
 func _on_quit_pressed():
-	pass # Replace with function body.
+	Global.goto_title()

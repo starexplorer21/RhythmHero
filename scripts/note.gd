@@ -8,6 +8,7 @@ func _physics_process(delta):
 	move_and_collide(move)
 	
 func hit():
+	move = Vector3.ZERO
 	$MeshInstance3D.visible = false
 	$MeshInstance3D2.visible = true
 	await get_tree().create_timer(0.02).timeout

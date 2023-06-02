@@ -1,26 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7tyfyi635j23"]
+[gd_scene load_steps=6 format=3 uid="uid://yfy3ks46sw0u"]
 
-[ext_resource type="Texture2D" uid="uid://di1bvurwasplm" path="res://resources/mountain-background.jpg" id="1_7yr6s"]
-[ext_resource type="Script" path="res://title.gd" id="1_8umd4"]
-[ext_resource type="FontFile" uid="uid://b1jm4p26lpwpu" path="res://resources/The Wild Breath of Zelda.otf" id="2_1riqn"]
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_tvsde"]
+[ext_resource type="Texture2D" uid="uid://di1bvurwasplm" path="res://resources/mountain-background.jpg" id="2_imtvk"]
+[ext_resource type="FontFile" uid="uid://b1jm4p26lpwpu" path="res://resources/The Wild Breath of Zelda.otf" id="3_brg1h"]
 
 [sub_resource type="Theme" id="Theme_n0qda"]
-default_font = ExtResource("2_1riqn")
+default_font = ExtResource("3_brg1h")
 default_font_size = 1200
 
 [sub_resource type="Theme" id="Theme_40wv0"]
-default_font = ExtResource("2_1riqn")
+default_font = ExtResource("3_brg1h")
 default_font_size = 1500
 
 [node name="Title" type="Node2D"]
 scale = Vector2(0.120001, 0.0799993)
-script = ExtResource("1_8umd4")
+script = ExtResource("1_tvsde")
 
 [node name="Mountain Background" type="Sprite2D" parent="."]
 modulate = Color(0.803922, 0.803922, 0.803922, 1)
 position = Vector2(4822.45, 4087.29)
 scale = Vector2(1.23775, 1.71554)
-texture = ExtResource("1_7yr6s")
+texture = ExtResource("2_imtvk")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2

@@ -42,6 +42,7 @@ func get_judge():
 	return judge
 
 func release():
+	move = Vector3.ZERO
 	playing_animation = true
 	$MeshInstance3D.visible = false
 	$MeshInstance3D2.visible = true

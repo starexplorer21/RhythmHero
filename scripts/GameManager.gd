@@ -215,7 +215,7 @@ func judge_lane(l):
 				
 		elif Input.is_action_just_released(laneHit) && lane_is_held:
 			calc_judge(lane[lane_pointer].get_judge())
-			if lane[lane_pointer].get_type() != "note":
+			if lane[lane_pointer].get_type() != "normal":
 				lane[lane_pointer].release()
 			lane.pop_back()
 			lane_is_held = false

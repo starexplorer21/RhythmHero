@@ -25,10 +25,8 @@ Global="*res://global.gd"
 
 [display]
 
-window/size/mode=3
 window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [input]
 

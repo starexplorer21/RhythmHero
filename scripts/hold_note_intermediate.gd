@@ -36,6 +36,7 @@ func get_judge():
 	return judge
 
 func release():
+	move = Vector3.ZERO
 	queue_free()
 	
 func get_type():
