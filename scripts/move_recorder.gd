@@ -47,7 +47,6 @@ func save():
 	
 	var save_file = FileAccess.open(map, FileAccess.WRITE)
 	save_file.store_string(JSON.stringify(dict))
-	print(dict)
 	print("Saved")
 
 func _physics_process(delta):

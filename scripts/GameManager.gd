@@ -25,9 +25,14 @@ var lane4_is_held = false
 
 var map_folder: String
 
-var path = "res://maps/"+map_folder+"/"
-var song = path + "song.wav"
-var map = path + "map.json"
+var path
+var song
+var map
+var metadata
+
+var load_metadata
+var meta_dict
+var high_score
 
 var map_dict
 var note
@@ -59,10 +64,11 @@ func assign_map(change_map, difficulty):
 	map_folder = change_map
 	path = "res://maps/"+map_folder+"/"
 	song = path + "song.wav"
-	if difficulty == "easy":
+	if difficulty == "Easy":
 		map = path + "easy.json"
-	elif difficulty == "normal": 
+	elif difficulty == "Normal": 
 		map = path + "map.json"
+	metadata = path + "metadata.json"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -90,8 +96,15 @@ func load_map():
 	if not FileAccess.file_exists(map):
 		print("Error could not load map")
 		return 
-		
+	
+	if not FileAccess.file_exists(metadata):
+		print("Error could not load metadata")
+		return 
+	
 	var load_file = FileAccess.open(map, FileAccess.READ)
+	load_metadata = FileAccess.open(metadata, FileAccess.READ_WRITE)
+	meta_dict = JSON.parse_string(load_metadata.get_as_text())
+	high_score = meta_dict["high_score"]
 	map_dict = JSON.parse_string(load_file.get_as_text())
 	
 func play_hit(judge):
@@ -152,8 +165,13 @@ func load_row():
 				
 			elif read_note == 5:
 				await get_tree().create_timer(1.3).timeout
+				music_player.stop()
 				var score = (perfects * 5.0) + (greats * 4.0) + (goods * 3.0)
-				Global.goto_navigation(score/total_score)
+				var accuracy = int((score/total_score) * 100)
+				meta_dict["high_score"] = maxi(high_score, accuracy)
+				print(meta_dict)
+				load_metadata.store_string(JSON.stringify(meta_dict))
+				Global.goto_navigation(accuracy, map_folder)
 		
 func judge_lane(l):
 	var lane = []
@@ -260,19 +278,19 @@ func _on_lane_queue_4_body_entered(body):
 	
 func _on_lane_judge_1_just_missed():
 	misses += 1
-	play_hit(miss)
+	calc_judge("Miss")
 
 func _on_lane_judge_2_just_missed():
 	misses += 1
-	play_hit(miss)
+	calc_judge("Miss")
 
 func _on_lane_judge_3_just_missed():
 	misses += 1
-	play_hit(miss)
+	calc_judge("Miss")
 
 func _on_lane_judge_4_just_missed():
 	misses += 1
-	play_hit(miss)
+	calc_judge("Miss")
 
 func _on_pause_pressed():
 	get_tree().call_group("to_pause", "stop")
@@ -309,4 +327,4 @@ func _on_continue_pressed():
 
 
 func _on_quit_pressed():
-	Global.goto_navigation(0.0)
+	Global.goto_navigation(0.0, map_folder)

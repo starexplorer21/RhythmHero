@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cl70sp6c5pu8g" path="res://resources/Mystic Woods Asset Pack/tilesets/fences.png" id="7_erynv"]
 [ext_resource type="PackedScene" uid="uid://bbty0kdtgcfo4" path="res://assets/opponent.tscn" id="8_2lm2k"]
 [ext_resource type="PackedScene" uid="uid://l0s68gsq4h71" path="res://assets/player.tscn" id="8_si8oj"]
-[ext_resource type="PackedScene" uid="uid://b6knaoux6kdbo" path="res://assets/song_select.tscn" id="10_2mdqo"]
+[ext_resource type="PackedScene" uid="uid://dlwelwlwtckah" path="res://assets/song_select.tscn" id="10_2mdqo"]
 [ext_resource type="Texture2D" uid="uid://dciylkau8g62n" path="res://resources/pause.png" id="11_ahcot"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="12_xo1bk"]
 
@@ -821,6 +821,7 @@ offset_right = -1.0
 offset_bottom = 11.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.759999, 0.72)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 11)
@@ -828,10 +829,10 @@ scale = Vector2(2.36219, -4.319)
 zoom = Vector2(4, 4)
 
 [node name="Pause" type="Button" parent="Player"]
-offset_left = -144.0
-offset_top = -68.0
-offset_right = 376.0
-offset_bottom = 452.0
+offset_left = -142.0
+offset_top = -70.0
+offset_right = 378.0
+offset_bottom = 450.0
 scale = Vector2(0.0400001, 0.0399997)
 icon = ExtResource("11_ahcot")
 
@@ -845,16 +846,6 @@ theme = SubResource("Theme_qc0pf")
 disabled = true
 text = "Continue"
 
-[node name="Save" type="Button" parent="Player"]
-visible = false
-offset_left = -31.0
-offset_top = -8.0
-offset_right = 25.0
-offset_bottom = 23.0
-theme = SubResource("Theme_qc0pf")
-disabled = true
-text = "Save"
-
 [node name="Quit" type="Button" parent="Player"]
 visible = false
 offset_left = -42.0
@@ -864,6 +855,16 @@ offset_bottom = 61.0
 theme = SubResource("Theme_qc0pf")
 disabled = true
 text = "Quit"
+
+[node name="Save" type="Button" parent="Player"]
+visible = false
+offset_left = -31.0
+offset_top = -8.0
+offset_right = 25.0
+offset_bottom = 23.0
+theme = SubResource("Theme_qc0pf")
+disabled = true
+text = "Save"
 
 [connection signal="body_entered" from="Opponent1/Opponent1Hitbox" to="." method="_on_opponent_1_hitbox_body_entered"]
 [connection signal="body_entered" from="Opponent2/Opponent2Hitbox" to="." method="_on_opponent_2_hitbox_body_entered"]
@@ -877,5 +878,5 @@ text = "Quit"
 [connection signal="play" from="Player/Song_Select" to="." method="_on_song_select_play"]
 [connection signal="pressed" from="Player/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Player/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Player/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Player/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Player/Save" to="." method="_on_save_pressed"]

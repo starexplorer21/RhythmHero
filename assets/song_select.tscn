@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6knaoux6kdbo"]
+[gd_scene load_steps=14 format=3 uid="uid://dlwelwlwtckah"]
 
+[ext_resource type="Script" path="res://scripts/song_select.gd" id="1_2x51w"]
 [ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_574t1"]
-[ext_resource type="Script" path="res://assets/song_select.gd" id="1_by3f6"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="2_o0wiy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta4dw"]
@@ -119,6 +119,9 @@ default_font_size = 16
 [sub_resource type="Theme" id="Theme_g0qh6"]
 default_font = ExtResource("2_o0wiy")
 
+[sub_resource type="Theme" id="Theme_syf2n"]
+default_font = ExtResource("2_o0wiy")
+
 [node name="Song_Select" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -130,10 +133,11 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-script = ExtResource("1_by3f6")
+script = ExtResource("1_2x51w")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
+scale = Vector2(1.4, 1.28)
 tile_set = SubResource("TileSet_mtu18")
 format = 2
 layer_0/tile_data = PackedInt32Array(-262147, 131072, 4, -196611, 131072, 5, -131075, 131072, 5, -65539, 131072, 5, -3, 131072, 5, 65533, 131072, 5, 131069, 131072, 5, 196605, 131072, 5, -262146, 131072, 4, -196610, 131072, 5, -131074, 131072, 5, -65538, 131072, 5, -2, 131072, 5, 65534, 131072, 5, 131070, 131072, 5, 196606, 131072, 5, -262145, 131072, 4, -196609, 131072, 5, -131073, 131072, 5, -65537, 131072, 5, -1, 131072, 5, 65535, 131072, 5, 131071, 131072, 5, 196607, 131072, 5, -327680, 131072, 4, -262144, 131072, 5, -196608, 131072, 5, -131072, 131072, 5, -65536, 131072, 5, 0, 131072, 5, 65536, 131072, 5, 131072, 131072, 5, -327679, 131072, 4, -262143, 131072, 5, -196607, 131072, 5, -131071, 131072, 5, -65535, 131072, 5, 1, 131072, 5, 65537, 131072, 5, 131073, 131072, 5, -327678, 131072, 4, -262142, 131072, 5, -196606, 131072, 5, -131070, 131072, 5, -65534, 131072, 5, 2, 131072, 5, 65538, 131072, 5, 131074, 131072, 5, 196610, 131072, 5, 262146, 131072, 6, 262145, 131072, 6, 262144, 131072, 6, 327679, 131072, 6, 327678, 131072, 6, 327677, 131072, 6, 262141, 131072, 5, 262142, 131072, 5, 262143, 131072, 5, 196608, 131072, 5, 196609, 131072, 5, -262148, 131072, 4, -262149, 131072, 4, -262150, 131072, 4, -327677, 131072, 4, -327676, 131072, 4, -327675, 131072, 4, -327674, 196608, 4, -262138, 196608, 5, -196602, 196608, 5, -131066, 196608, 5, -65530, 196608, 5, 6, 196608, 5, 65542, 196608, 5, 131078, 196608, 5, 196614, 196608, 5, 262150, 196608, 6, 262149, 131072, 6, 262148, 131072, 6, 262147, 131072, 6, 327676, 131072, 6, 327675, 131072, 6, 327674, 131072, 6, -262151, 65536, 4, -196615, 65536, 5, -131079, 65536, 5, -65543, 65536, 5, -7, 65536, 5, 65529, 65536, 5, 131065, 65536, 5, 196601, 65536, 5, 262137, 65536, 5, 327673, 65536, 6, -196614, 131072, 5, -131078, 131072, 5, -65542, 131072, 5, -6, 131072, 5, 65530, 131072, 5, 131066, 131072, 5, 196602, 131072, 5, 262138, 131072, 5, -196613, 131072, 5, -131077, 131072, 5, -65541, 131072, 5, -5, 131072, 5, 65531, 131072, 5, 131067, 131072, 5, 196603, 131072, 5, 262139, 131072, 5, -196612, 131072, 5, -131076, 131072, 5, -65540, 131072, 5, -4, 131072, 5, 65532, 131072, 5, 131068, 131072, 5, 196604, 131072, 5, 262140, 131072, 5, -262141, 131072, 5, -196605, 131072, 5, -131069, 131072, 5, -65533, 131072, 5, 3, 131072, 5, 65539, 131072, 5, 131075, 131072, 5, 196611, 131072, 5, -262140, 131072, 5, -196604, 131072, 5, -131068, 131072, 5, -65532, 131072, 5, 4, 131072, 5, 65540, 131072, 5, 131076, 131072, 5, 196612, 131072, 5, -262139, 131072, 5, -196603, 131072, 5, -131067, 131072, 5, -65531, 131072, 5, 5, 131072, 5, 65541, 131072, 5, 131077, 131072, 5, 196613, 131072, 5)
@@ -141,43 +145,45 @@ layer_0/tile_data = PackedInt32Array(-262147, 131072, 4, -196611, 131072, 5, -13
 [node name="Song_name" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = -95.0
-offset_top = -67.0
-offset_right = 99.0
-offset_bottom = 48.0
+offset_left = -98.0
+offset_top = -92.0
+offset_right = 96.0
+offset_bottom = 23.0
 theme = SubResource("Theme_spvda")
 text = "Title"
 horizontal_alignment = 1
 
 [node name="Cover" type="Sprite2D" parent="."]
-position = Vector2(-50.5, -0.4375)
+position = Vector2(-72, -8)
 scale = Vector2(0.12027, 0.111993)
 
 [node name="Artist" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_top = -42.0
-offset_right = 100.0
-offset_bottom = 16.0
+offset_left = 3.0
+offset_top = -69.0
+offset_right = 103.0
+offset_bottom = -11.0
 theme = SubResource("Theme_ugo1b")
 text = "artist"
 fit_content = true
 
 [node name="Suggested" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -100.0
-offset_top = 48.0
-offset_right = 92.0
-offset_bottom = 66.0
+offset_left = -141.0
+offset_top = 64.0
+offset_right = 145.0
+offset_bottom = 82.0
 theme = SubResource("Theme_tchtg")
-text = "Suggested By:"
+text = "Suggested By: Nathan and Xinyuan"
 scroll_active = false
 
 [node name="Button" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_top = -3.0
-offset_right = 95.0
-offset_bottom = 38.0
+offset_left = 6.0
+offset_top = 17.0
+offset_right = 101.0
+offset_bottom = 58.0
 theme = SubResource("Theme_pqxti")
 theme_override_font_sizes/font_size = 16
 text = "PLAY"
@@ -186,15 +192,24 @@ icon_alignment = 1
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = -106.0
-offset_top = -73.0
-offset_right = -87.0
-offset_bottom = -48.0
+offset_left = -144.0
+offset_top = -93.0
+offset_right = -125.0
+offset_bottom = -68.0
 scale = Vector2(0.629381, 0.515401)
 theme = SubResource("Theme_g0qh6")
 text = "X"
 text_overrun_behavior = 1
 clip_text = true
+
+[node name="High_Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -18.0
+offset_right = 139.0
+offset_bottom = 5.0
+theme = SubResource("Theme_syf2n")
+text = "High Score: 100 %"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

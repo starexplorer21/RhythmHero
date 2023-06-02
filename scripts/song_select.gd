@@ -37,9 +37,10 @@ func load_assets(song):
 	$Song_name.text = song
 	var suggested = metadata_dict["suggested"]
 	if suggested != "none":
-		$Suggested.text = "Suggester:"+ suggested
+		$Suggested.text = "Suggester(s): "+ suggested
 	else:
 		$Suggested.text = ""
+	$High_Score.text = "High Score: " + str(metadata_dict["high_score"]) + "%"
 
 
 func _on_button_2_pressed():
