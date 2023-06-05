@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://c2n8a74yql4da"]
 
 [ext_resource type="Script" path="res://scripts/navigation.gd" id="1_jytd7"]
-[ext_resource type="TileSet" uid="uid://c6njy4gt28oq4" path="res://resources/navigation.tres" id="2_dp7f3"]
+[ext_resource type="TileSet" uid="uid://bg5fmhpehndtv" path="res://resources/navigation.tres" id="2_dp7f3"]
 [ext_resource type="PackedScene" uid="uid://bbty0kdtgcfo4" path="res://assets/opponent.tscn" id="8_2lm2k"]
 [ext_resource type="PackedScene" uid="uid://l0s68gsq4h71" path="res://assets/player.tscn" id="8_si8oj"]
 [ext_resource type="PackedScene" uid="uid://dlwelwlwtckah" path="res://assets/song_select.tscn" id="10_2mdqo"]
 [ext_resource type="Texture2D" uid="uid://dciylkau8g62n" path="res://resources/pause.png" id="11_ahcot"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="12_xo1bk"]
-[ext_resource type="PackedScene" uid="uid://bfasckp2alsid" path="res://assets/performance.tscn" id="13_viabb"]
+[ext_resource type="PackedScene" path="res://assets/performance.tscn" id="13_viabb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyqsv"]
 size = Vector2(32.5111, 8.70744)

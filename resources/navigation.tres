@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://c6njy4gt28oq4"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://bg5fmhpehndtv"]
 
 [ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_vi0rc"]
 [ext_resource type="Texture2D" uid="uid://q5kd0j4xpoo3" path="res://resources/Mystic Woods Asset Pack/tilesets/decor_16x16.png" id="2_1a8w6"]
