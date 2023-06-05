@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://5pmwvolute45"]
+[gd_scene load_steps=10 format=3 uid="uid://5pmwvolute45"]
 
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_c5wy7"]
 [ext_resource type="TileSet" uid="uid://bg5fmhpehndtv" path="res://resources/navigation.tres" id="1_okaew"]
-[ext_resource type="Script" path="res://assets/tutorial.gd" id="1_x0wxq"]
 [ext_resource type="PackedScene" uid="uid://l0s68gsq4h71" path="res://assets/player.tscn" id="2_426v4"]
 [ext_resource type="Texture2D" uid="uid://dciylkau8g62n" path="res://resources/pause.png" id="3_h44ty"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="4_5t11f"]
+[ext_resource type="PackedScene" uid="uid://ca72wm246wrqa" path="res://assets/tutorial_slides.tscn" id="6_lfr6e"]
 
 [sub_resource type="Theme" id="Theme_tmvtu"]
 default_font = ExtResource("4_5t11f")
@@ -13,10 +14,10 @@ default_font = ExtResource("4_5t11f")
 default_font = ExtResource("4_5t11f")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38mmq"]
-size = Vector2(17, 12)
+size = Vector2(2.5, 26)
 
 [node name="tutorial" type="Node2D"]
-script = ExtResource("1_x0wxq")
+script = ExtResource("1_c5wy7")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -79,8 +80,19 @@ theme = SubResource("Theme_kety7")
 disabled = true
 text = "Quit"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Tutorial_Slides" parent="Player" instance=ExtResource("6_lfr6e")]
+visible = false
+offset_left = -1.0
+offset_top = 10.0
+offset_right = -1.0
+offset_bottom = 10.0
+scale = Vector2(0.681155, 0.698465)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(194.5, 17)
+[node name="show_tutorial" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="show_tutorial"]
+position = Vector2(349, 15)
 shape = SubResource("RectangleShape2D_38mmq")
+
+[connection signal="finished" from="Player/Tutorial_Slides" to="." method="_on_tutorial_slides_finished"]
+[connection signal="body_entered" from="show_tutorial" to="." method="_on_show_tutorial_body_entered"]

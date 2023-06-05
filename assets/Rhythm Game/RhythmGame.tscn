@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://k14mijfcpv82" path="res://resources/Judgements/Great.png" id="7_46til"]
 [ext_resource type="Texture2D" uid="uid://dnsihcfwsuogw" path="res://resources/Judgements/Miss.png" id="8_tcxpf"]
 [ext_resource type="Texture2D" uid="uid://dvsa0v315ka7k" path="res://resources/Judgements/Perfect.png" id="9_c24xn"]
-[ext_resource type="Theme" path="res://resources/RhythmGame.tres" id="10_e6jsc"]
+[ext_resource type="Theme" uid="uid://bvh7q71hb5w4p" path="res://resources/RhythmGame.tres" id="10_e6jsc"]
 [ext_resource type="Texture2D" uid="uid://dciylkau8g62n" path="res://resources/pause.png" id="11_ja52k"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="12_vb273"]
 

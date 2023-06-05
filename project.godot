@@ -25,9 +25,9 @@ Global="*res://scripts/global.gd"
 
 [display]
 
-window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
+window/vsync/vsync_mode=2
 
 [input]
 

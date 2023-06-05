@@ -279,7 +279,6 @@ func _physics_process(delta):
 	# incrementes the map position every frame. 
 	map_position += 1
 	
-
 func _on_lane_queue_1_body_entered(body):
 	lane1.push_front(body)
 	body.judge = "Miss"
@@ -324,7 +323,6 @@ func _on_pause_pressed():
 	$Control/Restart.disabled = false
 	$Control/Quit.disabled = false
 	
-
 func _on_restart_pressed():
 	Global.goto_game(map_folder)
 	
@@ -346,7 +344,6 @@ func _on_continue_pressed():
 	$Control/Continue.disabled = true
 	$Control/Restart.disabled = true
 	$Control/Quit.disabled = true
-
 
 func _on_quit_pressed():
 	Global.goto_navigation(0.0, map_folder, false, false)

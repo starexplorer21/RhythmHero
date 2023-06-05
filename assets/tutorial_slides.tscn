@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbnw2ym6qit4g"]
+[gd_scene load_steps=15 format=3 uid="uid://ca72wm246wrqa"]
 
+[ext_resource type="Script" path="res://scripts/tutorial_slides.gd" id="1_avcnn"]
 [ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_rkmw1"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="2_kwnrt"]
 [ext_resource type="Texture2D" uid="uid://bbk55fr2uidm1" path="res://resources/UI screen.png" id="3_focry"]
 [ext_resource type="Texture2D" uid="uid://68nupng0v8is" path="res://resources/RhythmGameScreen.png" id="4_dis83"]
+[ext_resource type="Texture2D" uid="uid://7v85hs0ynt62" path="res://resources/arrow.png" id="5_e4ici"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta4dw"]
 texture = ExtResource("1_rkmw1")
@@ -83,10 +85,16 @@ default_font = ExtResource("2_kwnrt")
 [sub_resource type="Theme" id="Theme_mut0w"]
 default_font = ExtResource("2_kwnrt")
 
-[sub_resource type="Theme" id="Theme_a7w71"]
+[sub_resource type="Theme" id="Theme_eow7l"]
 default_font = ExtResource("2_kwnrt")
 
 [sub_resource type="Theme" id="Theme_ex2qj"]
+default_font = ExtResource("2_kwnrt")
+
+[sub_resource type="Theme" id="Theme_kwjio"]
+default_font = ExtResource("2_kwnrt")
+
+[sub_resource type="Theme" id="Theme_6n3xi"]
 default_font = ExtResource("2_kwnrt")
 
 [node name="Tutorial_Slides" type="Control"]
@@ -97,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_avcnn")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -106,7 +115,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-262147, 131072, 4, -196611, 131072, 5, -131075, 131072, 5, -65539, 131072, 5, -3, 131072, 5, 65533, 131072, 5, 131069, 131072, 5, 196605, 131072, 5, -262146, 131072, 4, -196610, 131072, 5, -131074, 131072, 5, -65538, 131072, 5, -2, 131072, 5, 65534, 131072, 5, 131070, 131072, 5, 196606, 131072, 5, -262145, 131072, 4, -196609, 131072, 5, -131073, 131072, 5, -65537, 131072, 5, -1, 131072, 5, 65535, 131072, 5, 131071, 131072, 5, 196607, 131072, 5, -327680, 131072, 4, -262144, 131072, 5, -196608, 131072, 5, -131072, 131072, 5, -65536, 131072, 5, 0, 131072, 5, 65536, 131072, 5, 131072, 131072, 5, -327679, 131072, 4, -262143, 131072, 5, -196607, 131072, 5, -131071, 131072, 5, -65535, 131072, 5, 1, 131072, 5, 65537, 131072, 5, 131073, 131072, 5, -327678, 131072, 4, -262142, 131072, 5, -196606, 131072, 5, -131070, 131072, 5, -65534, 131072, 5, 2, 131072, 5, 65538, 131072, 5, 131074, 131072, 5, 196610, 131072, 5, 262146, 131072, 6, 262145, 131072, 6, 262144, 131072, 6, 327679, 131072, 6, 327678, 131072, 6, 327677, 131072, 6, 262141, 131072, 5, 262142, 131072, 5, 262143, 131072, 5, 196608, 131072, 5, 196609, 131072, 5, -262148, 131072, 4, -262149, 131072, 4, -262150, 131072, 4, -327677, 131072, 4, -327676, 131072, 4, -327675, 131072, 4, -327674, 131072, 4, -262138, 131072, 5, -196602, 131072, 5, -131066, 131072, 5, -65530, 131072, 5, 6, 131072, 5, 65542, 131072, 5, 131078, 131072, 5, 196614, 131072, 5, 262150, 131072, 6, 262149, 131072, 6, 262148, 131072, 6, 262147, 131072, 6, 327676, 131072, 6, 327675, 131072, 6, 327674, 131072, 6, -262151, 131072, 4, -196615, 131072, 5, -131079, 131072, 5, -65543, 131072, 5, -7, 131072, 5, 65529, 131072, 5, 131065, 131072, 5, 196601, 131072, 5, 262137, 131072, 5, 327673, 131072, 6, -196614, 131072, 5, -131078, 131072, 5, -65542, 131072, 5, -6, 131072, 5, 65530, 131072, 5, 131066, 131072, 5, 196602, 131072, 5, 262138, 131072, 5, -196613, 131072, 5, -131077, 131072, 5, -65541, 131072, 5, -5, 131072, 5, 65531, 131072, 5, 131067, 131072, 5, 196603, 131072, 5, 262139, 131072, 5, -196612, 131072, 5, -131076, 131072, 5, -65540, 131072, 5, -4, 131072, 5, 65532, 131072, 5, 131068, 131072, 5, 196604, 131072, 5, 262140, 131072, 5, -262141, 131072, 5, -196605, 131072, 5, -131069, 131072, 5, -65533, 131072, 5, 3, 131072, 5, 65539, 131072, 5, 131075, 131072, 5, 196611, 131072, 5, -262140, 131072, 5, -196604, 131072, 5, -131068, 131072, 5, -65532, 131072, 5, 4, 131072, 5, 65540, 131072, 5, 131076, 131072, 5, 196612, 131072, 5, -262139, 131072, 5, -196603, 131072, 5, -131067, 131072, 5, -65531, 131072, 5, 5, 131072, 5, 65541, 131072, 5, 131077, 131072, 5, 196613, 131072, 5, -327673, 196608, 4, -262137, 196608, 5, -196601, 196608, 5, -131065, 196608, 5, -65529, 196608, 5, 7, 196608, 5, 65543, 196608, 5, 131079, 196608, 5, 196615, 196608, 5, 262151, 196608, 6, 327672, 65536, 6, 262136, 65536, 5, 196600, 65536, 5, 131064, 65536, 5, 65528, 65536, 5, -8, 65536, 5, -65544, 65536, 5, -131080, 65536, 5, -196616, 65536, 5, -262152, 65536, 4)
 
 [node name="Slide1" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -114,20 +122,20 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="Slide1"]
 layout_mode = 0
 offset_left = -152.0
-offset_top = -72.0
+offset_top = -67.0
 offset_right = 148.0
-offset_bottom = 48.0
+offset_bottom = 53.0
 theme = SubResource("Theme_oq37x")
 text = "In front of you, is an opponent
 
 
 
-To become the True Rhythm Hero, 
+To become the Rhythm Hero, 
 you must defeat all enemies in your way"
 horizontal_alignment = 1
 
 [node name="Slide2" type="Control" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -148,7 +156,7 @@ scale = Vector2(0.211045, 0.195298)
 texture = ExtResource("3_focry")
 
 [node name="Slide3" type="Control" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -169,18 +177,21 @@ scale = Vector2(0.211045, 0.195298)
 texture = ExtResource("3_focry")
 
 [node name="ColorRect4" type="ColorRect" parent="Slide3"]
+layout_mode = 0
 offset_left = 59.0
 offset_top = 18.0
 offset_right = 63.0
 offset_bottom = 47.0
 
 [node name="ColorRect3" type="ColorRect" parent="Slide3"]
+layout_mode = 0
 offset_left = -5.0
 offset_top = 19.0
 offset_right = -1.0
 offset_bottom = 47.0
 
 [node name="ColorRect2" type="ColorRect" parent="Slide3"]
+layout_mode = 0
 offset_left = -5.0
 offset_top = 47.0
 offset_right = 63.0
@@ -194,7 +205,7 @@ offset_right = 63.0
 offset_bottom = 21.0
 
 [node name="Slide4" type="Control" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -206,19 +217,17 @@ texture = ExtResource("4_dis83")
 
 [node name="Label" type="Label" parent="Slide4"]
 layout_mode = 0
-offset_left = -150.0
-offset_top = -81.0
-offset_right = 158.0
-offset_bottom = -21.0
-theme = SubResource("Theme_a7w71")
-text = "Once in the map, you should see a screen 
-like this:
-
-"
+offset_left = -132.0
+offset_top = -83.0
+offset_right = 136.0
+offset_bottom = -43.0
+theme = SubResource("Theme_eow7l")
+text = "Once in the map, you'll see a screen 
+like this:"
 horizontal_alignment = 1
-visible_ratio = -0.0188679
 
 [node name="Slide5" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -236,17 +245,167 @@ offset_top = -83.0
 offset_right = 162.0
 offset_bottom = -60.0
 theme = SubResource("Theme_ex2qj")
-text = "Tap the notes with as they
+text = "Your goal is as they
 reach the highlighted purple area."
 horizontal_alignment = 1
 
-[node name="ColorRect4" type="ColorRect" parent="Slide5"]
-offset_left = 62.0
-offset_top = 17.0
-offset_right = 66.0
+[node name="ColorRect8" type="ColorRect" parent="Slide5"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 19.0
+offset_right = -59.0
+offset_bottom = 35.0
+
+[node name="ColorRect7" type="ColorRect" parent="Slide5"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 19.0
+offset_right = 60.0
+offset_bottom = 35.0
+
+[node name="ColorRect6" type="ColorRect" parent="Slide5"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 34.0
+offset_right = 60.0
 offset_bottom = 36.0
 
-[node name="ColorRect4" type="ColorRect" parent="Slide5/ColorRect4"]
-offset_top = -13.0
-offset_right = 4.0
-offset_bottom = 6.0
+[node name="ColorRect5" type="ColorRect" parent="Slide5"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 19.0
+offset_right = 58.0
+offset_bottom = 21.0
+
+[node name="Slide6" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Slide6"]
+layout_mode = 0
+offset_left = -194.0
+offset_top = -85.0
+offset_right = 192.0
+offset_bottom = -45.0
+theme = SubResource("Theme_kwjio")
+text = "Use these keys to hit the notes
+ as they approach"
+horizontal_alignment = 1
+
+[node name="RhythmGameScreen" type="Sprite2D" parent="Slide6"]
+position = Vector2(-1, 15)
+scale = Vector2(0.174064, 0.182515)
+texture = ExtResource("4_dis83")
+
+[node name="ColorRect" type="ColorRect" parent="Slide6"]
+layout_mode = 0
+offset_left = -56.0
+offset_top = 38.0
+offset_right = -39.0
+offset_bottom = 53.0
+color = Color(0.368627, 0.368627, 0.368627, 0.294118)
+
+[node name="ColorRect2" type="ColorRect" parent="Slide6"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 38.0
+offset_right = -8.0
+offset_bottom = 53.0
+color = Color(0.368627, 0.368627, 0.368627, 0.294118)
+
+[node name="ColorRect3" type="ColorRect" parent="Slide6"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 38.0
+offset_right = 23.0
+offset_bottom = 53.0
+color = Color(0.368627, 0.368627, 0.368627, 0.294118)
+
+[node name="ColorRect4" type="ColorRect" parent="Slide6"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 38.0
+offset_right = 56.0
+offset_bottom = 53.0
+color = Color(0.368627, 0.368627, 0.368627, 0.294118)
+
+[node name="Lane1" type="Label" parent="Slide6"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = 39.0
+offset_right = -41.0
+offset_bottom = 59.0
+theme = SubResource("Theme_6n3xi")
+text = "Z"
+
+[node name="Lane2" type="Label" parent="Slide6"]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 39.0
+offset_right = -10.0
+offset_bottom = 59.0
+theme = SubResource("Theme_6n3xi")
+text = "X"
+horizontal_alignment = 1
+
+[node name="Lane3" type="Label" parent="Slide6"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 39.0
+offset_right = 20.0
+offset_bottom = 59.0
+theme = SubResource("Theme_6n3xi")
+text = "C"
+
+[node name="Lane4" type="Label" parent="Slide6"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 39.0
+offset_right = 54.0
+offset_bottom = 59.0
+theme = SubResource("Theme_6n3xi")
+text = "V"
+
+[node name="Slide7" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Slide7"]
+layout_mode = 0
+offset_left = -147.0
+offset_top = -26.0
+offset_right = 153.0
+offset_bottom = 94.0
+theme = SubResource("Theme_oq37x")
+text = "Now go forth, collect all 12 crutches,
+and become the TRUE Rhythm Hero"
+horizontal_alignment = 1
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 82.0
+offset_right = 688.0
+offset_bottom = 602.0
+rotation = 3.14143
+scale = Vector2(0.0293242, 0.0300451)
+disabled = true
+icon = ExtResource("5_e4ici")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = -165.0
+offset_top = 68.0
+offset_right = 355.0
+offset_bottom = 588.0
+scale = Vector2(0.0293242, 0.0300451)
+disabled = true
+icon = ExtResource("5_e4ici")
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
