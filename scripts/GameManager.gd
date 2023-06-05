@@ -108,6 +108,7 @@ func load_map():
 	map_dict = JSON.parse_string(load_file.get_as_text())
 	
 func play_hit(judge):
+	# First resets all the hit markers and then shows the next one
 	reset_all()
 	$Control/Combo.text = str(combo)
 	for i in range(5):
@@ -124,7 +125,9 @@ func reset_all():
 	miss.modulate.a = 0
 		
 func load_row():
+	#this just makes sure we don't run off the end and crash
 	if map_position < len(map_dict["lane1"]):
+		# queues notes to be spawned
 		var row_notes = []
 		row_notes.push_back(map_dict["lane1"][map_position])
 		row_notes.push_back(map_dict["lane2"][map_position])
@@ -162,21 +165,25 @@ func load_row():
 				cur_note.position.x = lane_x[i]
 				cur_note.position.z = start
 				total_score += 5
-				
+			
+			# If I read to end the game then I'll wait a bit to let the song end then end game. 
 			elif read_note == 5:
 				await get_tree().create_timer(1.3).timeout
 				music_player.stop()
 				var score = (perfects * 5.0) + (greats * 4.0) + (goods * 3.0)
 				var accuracy = int((score/total_score) * 100)
-				meta_dict["high_score"] = maxi(high_score, accuracy)
-				print(meta_dict)
+				var show_high_score = false
+				if high_score < accuracy:
+					meta_dict["high_score"] = accuracy
+					show_high_score = true
 				load_metadata.store_string(JSON.stringify(meta_dict))
-				Global.goto_navigation(accuracy, map_folder)
+				Global.goto_navigation(accuracy, map_folder, show_high_score, true)
 		
 func judge_lane(l):
 	var lane = []
 	var lane_is_held = false
 	var laneHit = ""
+	# if statements to make it more reusable. 
 	if l == 1:
 		lane = lane1
 		lane_is_held = lane1_is_held
@@ -195,7 +202,8 @@ func judge_lane(l):
 		laneHit = "lane4"
 	elif l == 5:
 		queue_free()
-		
+	
+	# Some defensive code to clean up any freed notes that haven't been removed
 	var lane_pointer = lane.size()-1
 	if lane.size()-1 < 0:
 		lane_pointer = -1
@@ -203,7 +211,9 @@ func judge_lane(l):
 		lane.pop_back()
 		lane_pointer -= 1
 
+	# More defensive code to check if we will run with a negative index
 	if !lane.is_empty() && lane_pointer >= 0:
+		# Check if the current lane has been tapped
 		if Input.is_action_just_pressed(laneHit):
 			calc_judge(lane[lane_pointer].get_judge())
 			lane[lane_pointer].hit()
@@ -211,15 +221,19 @@ func judge_lane(l):
 			if lane[lane_pointer].get_type() == "hold_start":
 				lane_is_held = true
 			else:
+				# We don't pop out the hold note if we're holding
 				lane.pop_back()
 				
 		elif Input.is_action_just_released(laneHit) && lane_is_held:
 			calc_judge(lane[lane_pointer].get_judge())
+			# More defensive code to prevent crashing
 			if lane[lane_pointer].get_type() != "normal":
 				lane[lane_pointer].release()
 			lane.pop_back()
 			lane_is_held = false
 			
+	# updates the state of each lane because booleans don't save references, instead they make
+	# a new copy, so we store the current state. 
 	if l == 1:
 		lane1_is_held = lane_is_held
 	elif l == 2:
@@ -257,6 +271,12 @@ func _physics_process(delta):
 	judge_lane(3)
 	judge_lane(4)
 	load_row()
+	
+	# Allows escape to be used as a pause button. 
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_pause_pressed()
+
+	# incrementes the map position every frame. 
 	map_position += 1
 	
 
@@ -276,6 +296,8 @@ func _on_lane_queue_4_body_entered(body):
 	lane4.push_front(body)
 	body.judge = "Miss"
 	
+# This section checks for leaked notes. 
+
 func _on_lane_judge_1_just_missed():
 	misses += 1
 	calc_judge("Miss")
@@ -327,4 +349,4 @@ func _on_continue_pressed():
 
 
 func _on_quit_pressed():
-	Global.goto_navigation(0.0, map_folder)
+	Global.goto_navigation(0.0, map_folder, false, false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dfyxgennxq1s4"]
+[gd_scene load_steps=22 format=3 uid="uid://dgryfyrdsd1fc"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_rbeo2"]
 [ext_resource type="Texture2D" uid="uid://cmvuia48w4vh6" path="res://resources/road2.png" id="2_gio23"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://k14mijfcpv82" path="res://resources/Judgements/Great.png" id="7_46til"]
 [ext_resource type="Texture2D" uid="uid://dnsihcfwsuogw" path="res://resources/Judgements/Miss.png" id="8_tcxpf"]
 [ext_resource type="Texture2D" uid="uid://dvsa0v315ka7k" path="res://resources/Judgements/Perfect.png" id="9_c24xn"]
-[ext_resource type="Theme" uid="uid://bvh7q71hb5w4p" path="res://assets/Rhythm Game/RhythmGame.tres" id="10_eu4b5"]
+[ext_resource type="Theme" uid="uid://bvh7q71hb5w4p" path="res://resources/RhythmGame.tres" id="10_2ubkh"]
 [ext_resource type="Texture2D" uid="uid://dciylkau8g62n" path="res://resources/pause.png" id="11_ja52k"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="12_vb273"]
 
@@ -177,7 +177,7 @@ offset_left = 315.0
 offset_top = -197.0
 offset_right = 739.0
 offset_bottom = -174.0
-theme = ExtResource("10_eu4b5")
+theme = ExtResource("10_2ubkh")
 theme_override_colors/font_color = Color(1, 0.737255, 0.811765, 1)
 theme_override_colors/font_shadow_color = Color(0.780392, 0, 0.498039, 1)
 theme_override_colors/font_outline_color = Color(0.862745, 0, 0.678431, 0.466667)
@@ -189,7 +189,7 @@ offset_left = 347.0
 offset_top = -135.0
 offset_right = 442.0
 offset_bottom = -42.0
-theme = ExtResource("10_eu4b5")
+theme = ExtResource("10_2ubkh")
 text = "0"
 horizontal_alignment = 2
 
@@ -202,6 +202,7 @@ offset_right = -34.0
 offset_bottom = 217.0
 scale = Vector2(0.12, 0.12)
 icon = ExtResource("11_ja52k")
+icon_alignment = 1
 
 [node name="Continue" type="Button" parent="Control"]
 visible = false

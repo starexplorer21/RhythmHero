@@ -4,6 +4,7 @@ var song_name
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player/Song_Select.visible = false
 	if Global.unlocked_level2:
 		open_level2()
 	
@@ -72,7 +73,18 @@ func _on_opponent_8_hitbox_body_entered(body):
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
 	$Player.can_move = false
+	
+func _on_opponent_9_hitbox_body_entered(body):
+	song_name = "6 Trillion Years and Overnight Story"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
+func _on_opponent_10_hitbox_body_entered(body):
+	song_name = "Whats Up Pop"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
+	$Player.can_move = false
 
 func _on_song_select_play():
 	Global.goto_game(song_name)
@@ -88,26 +100,31 @@ func _on_pause_pressed():
 	
 func show_pause():
 	$Player/Continue.visible = true
-	$Player/Save.visible = true
 	$Player/Quit.visible = true
 	$Player/Continue.disabled = false
-	$Player/Save.disabled = false
 	$Player/Quit.disabled = false
 
 
 func _on_continue_pressed():
 	$Player.can_move = true
 	$Player/Continue.visible = false
-	$Player/Save.visible = false
 	$Player/Quit.visible = false
 	$Player/Continue.disabled = true
-	$Player/Save.disabled = true
 	$Player/Quit.disabled = true
-
-
-func _on_save_pressed():
-	pass # Replace with function body.
 
 
 func _on_quit_pressed():
 	Global.goto_title()
+
+
+func _on_performance_closed():
+	$Player/Performance.visible = false
+	$Player.can_move = true
+	
+func show_performance(accuracy, map, new_high_score):
+	$Player/Performance.visible = true
+	$Player.can_move = false
+	$Player/Performance.show_performance(accuracy, new_high_score, map)
+
+
+

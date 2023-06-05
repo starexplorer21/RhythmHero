@@ -1,0 +1,199 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfasckp2alsid"]
+
+[ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_3fv5w"]
+[ext_resource type="Script" path="res://scripts/performance.gd" id="1_hhrg7"]
+[ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="2_gh3pb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta4dw"]
+texture = ExtResource("1_3fv5w")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_y13ye"]
+sources/0 = SubResource("TileSetAtlasSource_ta4dw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_44wxb"]
+
+[sub_resource type="Theme" id="Theme_duda3"]
+default_font = ExtResource("2_gh3pb")
+default_font_size = 16
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0.00392157, 0, 0, 0.466667)
+Label/colors/shader = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_44wxb")
+
+[sub_resource type="Theme" id="Theme_2mhr5"]
+default_font = ExtResource("2_gh3pb")
+default_font_size = 128
+
+[sub_resource type="Theme" id="Theme_3nfc2"]
+default_font = ExtResource("2_gh3pb")
+
+[sub_resource type="Theme" id="Theme_ak4s0"]
+default_font = ExtResource("2_gh3pb")
+
+[sub_resource type="Theme" id="Theme_4i1ch"]
+default_font = ExtResource("2_gh3pb")
+default_font_size = 16
+
+[sub_resource type="Theme" id="Theme_so452"]
+default_font = ExtResource("2_gh3pb")
+default_font_size = 32
+
+[node name="Performance" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hhrg7")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(1.4, 1.28)
+tile_set = SubResource("TileSet_y13ye")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262147, 131072, 4, -196611, 131072, 5, -131075, 131072, 5, -65539, 131072, 5, -3, 131072, 5, 65533, 131072, 5, 131069, 131072, 5, 196605, 131072, 5, -262146, 131072, 4, -196610, 131072, 5, -131074, 131072, 5, -65538, 131072, 5, -2, 131072, 5, 65534, 131072, 5, 131070, 131072, 5, 196606, 131072, 5, -262145, 131072, 4, -196609, 131072, 5, -131073, 131072, 5, -65537, 131072, 5, -1, 131072, 5, 65535, 131072, 5, 131071, 131072, 5, 196607, 131072, 5, -327680, 131072, 4, -262144, 131072, 5, -196608, 131072, 5, -131072, 131072, 5, -65536, 131072, 5, 0, 131072, 5, 65536, 131072, 5, 131072, 131072, 5, -327679, 131072, 4, -262143, 131072, 5, -196607, 131072, 5, -131071, 131072, 5, -65535, 131072, 5, 1, 131072, 5, 65537, 131072, 5, 131073, 131072, 5, -327678, 131072, 4, -262142, 131072, 5, -196606, 131072, 5, -131070, 131072, 5, -65534, 131072, 5, 2, 131072, 5, 65538, 131072, 5, 131074, 131072, 5, 196610, 131072, 5, 262146, 131072, 6, 262145, 131072, 6, 262144, 131072, 6, 327679, 131072, 6, 327678, 131072, 6, 327677, 131072, 6, 262141, 131072, 5, 262142, 131072, 5, 262143, 131072, 5, 196608, 131072, 5, 196609, 131072, 5, -262148, 131072, 4, -262149, 131072, 4, -262150, 131072, 4, -327677, 131072, 4, -327676, 131072, 4, -327675, 131072, 4, -327674, 131072, 4, -262138, 131072, 5, -196602, 131072, 5, -131066, 131072, 5, -65530, 131072, 5, 6, 131072, 5, 65542, 131072, 5, 131078, 131072, 5, 196614, 131072, 5, 262150, 131072, 6, 262149, 131072, 6, 262148, 131072, 6, 262147, 131072, 6, 327676, 131072, 6, 327675, 131072, 6, 327674, 131072, 6, -262151, 131072, 4, -196615, 131072, 5, -131079, 131072, 5, -65543, 131072, 5, -7, 131072, 5, 65529, 131072, 5, 131065, 131072, 5, 196601, 131072, 5, 262137, 131072, 5, 327673, 131072, 6, -196614, 131072, 5, -131078, 131072, 5, -65542, 131072, 5, -6, 131072, 5, 65530, 131072, 5, 131066, 131072, 5, 196602, 131072, 5, 262138, 131072, 5, -196613, 131072, 5, -131077, 131072, 5, -65541, 131072, 5, -5, 131072, 5, 65531, 131072, 5, 131067, 131072, 5, 196603, 131072, 5, 262139, 131072, 5, -196612, 131072, 5, -131076, 131072, 5, -65540, 131072, 5, -4, 131072, 5, 65532, 131072, 5, 131068, 131072, 5, 196604, 131072, 5, 262140, 131072, 5, -262141, 131072, 5, -196605, 131072, 5, -131069, 131072, 5, -65533, 131072, 5, 3, 131072, 5, 65539, 131072, 5, 131075, 131072, 5, 196611, 131072, 5, -262140, 131072, 5, -196604, 131072, 5, -131068, 131072, 5, -65532, 131072, 5, 4, 131072, 5, 65540, 131072, 5, 131076, 131072, 5, 196612, 131072, 5, -262139, 131072, 5, -196603, 131072, 5, -131067, 131072, 5, -65531, 131072, 5, 5, 131072, 5, 65541, 131072, 5, 131077, 131072, 5, 196613, 131072, 5, -327673, 196608, 4, -262137, 196608, 5, -196601, 196608, 5, -131065, 196608, 5, -65529, 196608, 5, 7, 196608, 5, 65543, 196608, 5, 131079, 196608, 5, 196615, 196608, 5, 262151, 196608, 6, 327672, 65536, 6, 262136, 65536, 5, 196600, 65536, 5, 131064, 65536, 5, 65528, 65536, 5, -8, 65536, 5, -65544, 65536, 5, -131080, 65536, 5, -196616, 65536, 5, -262152, 65536, 4)
+
+[node name="Song_name" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -146.0
+offset_top = -70.0
+offset_right = 159.0
+offset_bottom = -50.0
+theme = SubResource("Theme_duda3")
+text = "6 Trillion Years and an Overnight Story"
+horizontal_alignment = 1
+
+[node name="Cover" type="Sprite2D" parent="."]
+position = Vector2(-72, -8)
+scale = Vector2(0.12027, 0.111993)
+
+[node name="Grade" type="Label" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = -37.0
+offset_right = 127.0
+offset_bottom = 102.0
+theme = SubResource("Theme_2mhr5")
+text = "S"
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = -165.0
+offset_top = -93.0
+offset_right = -146.0
+offset_bottom = -68.0
+scale = Vector2(0.629381, 0.515401)
+theme = SubResource("Theme_3nfc2")
+text = "X"
+text_overrun_behavior = 1
+clip_text = true
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -51.0
+offset_right = 163.0
+offset_bottom = -11.0
+theme = SubResource("Theme_ak4s0")
+text = "Score: 100 %"
+
+[node name="High_score" type="Label" parent="."]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 66.0
+offset_right = 72.0
+offset_bottom = 89.0
+theme = SubResource("Theme_4i1ch")
+text = "NEW HIGH SCORE!!!"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -52.0
+offset_top = -93.0
+offset_right = 148.0
+offset_bottom = -56.0
+scale = Vector2(0.559999, 0.6)
+theme = SubResource("Theme_so452")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+text = "Performance"
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

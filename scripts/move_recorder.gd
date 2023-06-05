@@ -1,6 +1,6 @@
 extends Node3D
 
-var map_folder = "Lower"
+var map_folder = "What's Up Pop"
 
 var bpm = 117
 #var time_between_notes = ((30.0)/bpm)/32.0
@@ -8,7 +8,7 @@ var timer = 0
 
 var path = "res://maps/"+map_folder+"/"
 var song = path + "song.wav"
-var map = path + "easy.json"
+var map = path + "map.json"
 
 var lane1 = []
 var queued_input_lane_1 = 0

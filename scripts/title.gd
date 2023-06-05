@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_play_pressed():
-	Global.goto_navigation(0.0, "")
+	Global.goto_navigation(0.0, "", false, false)
 
 
 func _on_change_difficulty_pressed():

@@ -26,10 +26,10 @@ texture = ExtResource("2_imtvk")
 format = 2
 
 [node name="Difficulty" type="Label" parent="."]
-offset_left = 2200.0
-offset_top = 4850.0
-offset_right = 14189.0
-offset_bottom = 6104.0
+offset_left = 2249.98
+offset_top = 5650.05
+offset_right = 14239.0
+offset_bottom = 6904.05
 scale = Vector2(0.452832, 0.944435)
 theme = SubResource("Theme_n0qda")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -41,10 +41,10 @@ theme_override_constants/outline_size = 50
 text = "Current Difficulty: Normal"
 
 [node name="Title" type="Label" parent="."]
-offset_left = 2008.32
-offset_top = 462.504
-offset_right = 7779.32
-offset_bottom = 2275.5
+offset_left = 1999.98
+offset_top = 475.004
+offset_right = 7770.98
+offset_bottom = 2288.0
 theme = SubResource("Theme_n0qda")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.0901961, 0.47451, 1)
@@ -57,9 +57,9 @@ text = "Rhythm Hero"
 [node name="Change_Difficulty" type="Button" parent="."]
 texture_filter = 1
 offset_left = 3033.31
-offset_top = 6375.05
+offset_top = 6850.06
 offset_right = 12965.3
-offset_bottom = 7947.05
+offset_bottom = 8422.06
 scale = Vector2(0.383143, 0.559524)
 theme = SubResource("Theme_40wv0")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -68,10 +68,10 @@ text = "Change Difficulty"
 
 [node name="Play" type="Button" parent="."]
 texture_filter = 1
-offset_left = 3158.31
-offset_top = 2425.02
-offset_right = 6725.31
-offset_bottom = 4275.02
+offset_left = 3033.31
+offset_top = 1875.02
+offset_right = 6600.31
+offset_bottom = 3725.02
 theme = SubResource("Theme_40wv0")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.643137, 0.643137, 0.643137, 1)
