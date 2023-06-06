@@ -8,6 +8,7 @@ func _ready():
 	if Global.unlocked_level2:
 		open_level2()
 	$Player/CrutchCount.text = "x"+str(Global.crutches)
+	$WinText.visible = Global.crutches >= 12
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -230,10 +230,10 @@ size = Vector2(32.5111, 8.70744)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfghv"]
 
-[sub_resource type="Theme" id="Theme_qc0pf"]
+[sub_resource type="Theme" id="Theme_ssqmv"]
 default_font = ExtResource("12_xo1bk")
 
-[sub_resource type="Theme" id="Theme_ssqmv"]
+[sub_resource type="Theme" id="Theme_qc0pf"]
 default_font = ExtResource("12_xo1bk")
 
 [node name="Navigation" type="Node2D"]
@@ -401,6 +401,18 @@ scale = Vector2(0.768968, 0.773656)
 position = Vector2(-4.474, -0.713745)
 scale = Vector2(0.405766, 1.84671)
 shape = SubResource("RectangleShape2D_tfghv")
+
+[node name="WinText" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 41.0
+offset_top = 63.0
+offset_right = 292.0
+offset_bottom = 156.0
+theme = SubResource("Theme_ssqmv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Congratulations! A winner is you!"
 
 [node name="Player" parent="." instance=ExtResource("8_si8oj")]
 position = Vector2(161, 119)

@@ -9,7 +9,7 @@ var dict
 var save_path = "res://save_file.json"
 var crutches
 var loaded_save
-var music_position
+var music_position = 0
 var music_player
 
 func load_save():
@@ -60,7 +60,8 @@ func goto_navigation(accuracy, map, new_high_score, show_performance):
 			crutches += 1
 			dict["crutches"] = crutches
 			save()
-	music_player.play()		
+	if !music_player.is_playing():	
+		music_player.play()		
 
 	call_deferred("_deferred_goto_navigation", accuracy, map, new_high_score, show_performance)
 
