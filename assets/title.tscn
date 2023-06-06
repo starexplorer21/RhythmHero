@@ -79,10 +79,10 @@ text = "PLAY"
 
 [node name="Tutorial" type="Button" parent="."]
 texture_filter = 1
-offset_left = 2399.98
-offset_top = 3925.04
-offset_right = 8464.98
-offset_bottom = 5775.04
+offset_left = 2166.66
+offset_top = 4037.54
+offset_right = 8721.66
+offset_bottom = 5887.54
 scale = Vector2(0.817094, 0.820816)
 theme = SubResource("Theme_40wv0")
 theme_override_colors/font_color = Color(1, 1, 1, 1)

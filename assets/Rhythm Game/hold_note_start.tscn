@@ -14,6 +14,7 @@ size = Vector2(2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45bgs"]
 transparency = 1
+albedo_color = Color(0.670588, 0.670588, 0.670588, 1)
 albedo_texture = ExtResource("3_21jd3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gq8ef"]
@@ -31,9 +32,9 @@ material_override = SubResource("StandardMaterial3D_o46ah")
 mesh = SubResource("PlaneMesh_lepmf")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.5621, 4.37722e-08, 0.0351218, 0.0266146, 1.01954, -1.18373, -0.0229173, 1.18403, 1.01929, -6.98492e-09, 0, -0.271891)
-visible = false
+transform = Transform3D(1.56249, 0, 0, 0, 1.56249, 0, 0, 0, 1.5625, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_45bgs")
+transparency = 1.0
 mesh = SubResource("PlaneMesh_gq8ef")
 skeleton = NodePath("../MeshInstance3D")
 

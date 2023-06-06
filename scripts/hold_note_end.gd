@@ -44,9 +44,6 @@ func get_judge():
 func release():
 	move = Vector3.ZERO
 	playing_animation = true
-	$MeshInstance3D.visible = false
-	$MeshInstance3D2.visible = true
-	await get_tree().create_timer(0.02).timeout
 	queue_free()
 	
 func get_type():

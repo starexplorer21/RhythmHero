@@ -10,8 +10,16 @@ func _physics_process(delta):
 func hit():
 	move = Vector3.ZERO
 	$MeshInstance3D.visible = false
-	$MeshInstance3D2.visible = true
-	await get_tree().create_timer(0.02).timeout
+	hit_effect()
+	
+func hit_effect():
+	var mesh = $MeshInstance3D2
+	for i in range(5):
+		mesh.transparency -= 0.2
+		await get_tree().create_timer(0.01).timeout
+	for i in range(5):
+		mesh.transparency += 0.2
+		await get_tree().create_timer(0.01).timeout
 	queue_free()
 	
 func miss():

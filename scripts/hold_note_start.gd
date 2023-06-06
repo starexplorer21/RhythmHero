@@ -19,6 +19,8 @@ func _physics_process(delta):
 	
 func hit():
 	move = Vector3.ZERO
+	$MeshInstance3D.visible = false
+	hold_on()
 	
 func miss():
 	if !playing_animation: 
@@ -44,10 +46,21 @@ func release():
 	move = Vector3.ZERO
 	playing_animation = true
 	$MeshInstance3D.visible = false
-	$MeshInstance3D2.visible = true
-	await get_tree().create_timer(0.02).timeout
-	queue_free()
+	hold_off()
 	
+	
+func hold_on():
+	var mesh = $MeshInstance3D2
+	for i in range(5):
+		mesh.transparency -= 0.2
+		await get_tree().create_timer(0.01).timeout
+	
+func hold_off():
+	var mesh = $MeshInstance3D2
+	for i in range(5):
+		mesh.transparency += 0.2
+		await get_tree().create_timer(0.01).timeout
+	queue_free()
 func get_type():
 	return "hold_start"
 	
