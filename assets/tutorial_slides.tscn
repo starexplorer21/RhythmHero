@@ -370,12 +370,57 @@ text = "V"
 
 [node name="Slide7" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Slide7"]
+offset_left = -194.0
+offset_top = -85.0
+offset_right = 192.0
+offset_bottom = -45.0
+theme = SubResource("Theme_kwjio")
+text = "Click the pause button or press
+Escape to pause the game."
+horizontal_alignment = 1
+
+[node name="RhythmGameScreen" type="Sprite2D" parent="Slide7"]
+position = Vector2(-1, 15)
+scale = Vector2(0.174064, 0.182515)
+texture = ExtResource("4_dis83")
+
+[node name="ColorRect8" type="ColorRect" parent="Slide7"]
+offset_left = -103.0
+offset_top = -46.0
+offset_right = -101.0
+offset_bottom = -30.0
+
+[node name="ColorRect7" type="ColorRect" parent="Slide7"]
+offset_left = -89.0
+offset_top = -47.0
+offset_right = -87.0
+offset_bottom = -31.0
+
+[node name="ColorRect6" type="ColorRect" parent="Slide7"]
+offset_left = -103.0
+offset_top = -32.0
+offset_right = -87.0
+offset_bottom = -30.0
+
+[node name="ColorRect5" type="ColorRect" parent="Slide7"]
+offset_left = -103.0
+offset_top = -47.0
+offset_right = -87.0
+offset_bottom = -45.0
+
+[node name="Slide8" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Slide8"]
 layout_mode = 0
 offset_left = -147.0
 offset_top = -26.0

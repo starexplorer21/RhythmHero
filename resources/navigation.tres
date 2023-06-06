@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://bg5fmhpehndtv"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://bg5fmhpehndtv"]
 
 [ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_vi0rc"]
 [ext_resource type="Texture2D" uid="uid://q5kd0j4xpoo3" path="res://resources/Mystic Woods Asset Pack/tilesets/decor_16x16.png" id="2_1a8w6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://chgl6tq3xpmt3" path="res://resources/Mystic Woods Asset Pack/tilesets/grass.png" id="4_4ph28"]
 [ext_resource type="Texture2D" uid="uid://c5y3scrmfsgd" path="res://resources/Mystic Woods Asset Pack/objects/objects.png" id="5_inbwk"]
 [ext_resource type="Texture2D" uid="uid://cl70sp6c5pu8g" path="res://resources/Mystic Woods Asset Pack/tilesets/fences.png" id="6_d3q7o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_03mgy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t84k1"]
 texture = ExtResource("1_vi0rc")
@@ -241,7 +243,8 @@ texture = ExtResource("6_d3q7o")
 3:3/0 = 0
 
 [resource]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4294967295
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_03mgy")
 sources/0 = SubResource("TileSetAtlasSource_t84k1")
 sources/1 = SubResource("TileSetAtlasSource_1gika")
 sources/2 = SubResource("TileSetAtlasSource_ev7d2")

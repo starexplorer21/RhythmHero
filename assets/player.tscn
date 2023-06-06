@@ -1,8 +1,7 @@
-[gd_scene load_steps=42 format=3 uid="uid://l0s68gsq4h71"]
+[gd_scene load_steps=41 format=3 uid="uid://l0s68gsq4h71"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_43taa"]
 [ext_resource type="Texture2D" uid="uid://c5roa7t7hcf37" path="res://resources/Mystic Woods Asset Pack/characters/player.png" id="1_pghqk"]
-[ext_resource type="Texture2D" uid="uid://c8ohi1utl6rbi" path="res://resources/crutch.png" id="3_87keu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktfsw"]
 atlas = ExtResource("1_pghqk")
@@ -303,9 +302,3 @@ animation = &"up_walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 12.5)
 shape = SubResource("RectangleShape2D_1e6kv")
-
-[node name="Crutch" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 7)
-scale = Vector2(0.71, 0.95)
-texture = ExtResource("3_87keu")

@@ -23,7 +23,7 @@ func transition(from, to):
 		await get_tree().create_timer(0.05).timeout
 		
 func _on_next_pressed():
-	if slide_num == 7:
+	if slide_num == 8:
 		visible = false
 		$Next.disabled = true
 		$Back.disabled = true

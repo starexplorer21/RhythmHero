@@ -4,7 +4,7 @@ var current_scene
 var map
 var root
 var difficulty = "Normal"
-var unlocked_level2 = true
+var unlocked_level2 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

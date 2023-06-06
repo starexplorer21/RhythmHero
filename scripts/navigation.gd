@@ -10,7 +10,9 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass	
+	# Allows escape to be used as a pause button. 
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_pause_pressed()
 
 func open_level2():
 	for i in range(20):
@@ -33,13 +35,11 @@ func _on_opponent_5_hitbox_body_entered(body):
 	$Player/Song_Select.visible = true
 	$Player.can_move = false
 
-
 func _on_opponent_4_hitbox_body_entered(body):
 	song_name = "Paradise"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
 	$Player.can_move = false
-
 
 func _on_opponent_3_hitbox_body_entered(body):
 	song_name = "Daybreak Frontline"
@@ -47,20 +47,17 @@ func _on_opponent_3_hitbox_body_entered(body):
 	$Player/Song_Select.visible = true
 	$Player.can_move = false
 
-
 func _on_opponent_2_hitbox_body_entered(body):
 	song_name = "Entertain Me"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
 	$Player.can_move = false
 
-
 func _on_opponent_6_hitbox_body_entered(body):
 	song_name = "Infinitely Gray"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
 	$Player.can_move = false
-
 
 func _on_opponent_7_hitbox_body_entered(body):
 	song_name = "Don't Fight The Music"
@@ -93,7 +90,6 @@ func _on_song_select_closed():
 	$Player/Song_Select.visible = false
 	$Player.can_move = true
 
-
 func _on_pause_pressed():
 	$Player.can_move = false
 	show_pause()
@@ -103,7 +99,6 @@ func show_pause():
 	$Player/Quit.visible = true
 	$Player/Continue.disabled = false
 	$Player/Quit.disabled = false
-
 
 func _on_continue_pressed():
 	$Player.can_move = true
@@ -115,7 +110,6 @@ func _on_continue_pressed():
 
 func _on_quit_pressed():
 	Global.goto_title()
-
 
 func _on_performance_closed():
 	$Player/Performance.visible = false
