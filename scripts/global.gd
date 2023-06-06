@@ -15,12 +15,16 @@ func load_save():
 		print("Error could not load save")
 		return 
 		
-	loaded_save = FileAccess.open(save_path, FileAccess.READ_WRITE)
+	loaded_save = FileAccess.open(save_path, FileAccess.READ)
 	dict = JSON.parse_string(loaded_save.get_as_text())
-	unlocked_level2 = dict["unlocked_level2"]
+	crutches = dict["crutches"]
+	unlocked_level2 = (crutches >=7)
+	loaded_save.close()
 
 func save():
+	loaded_save = FileAccess.open(save_path, FileAccess.READ_WRITE)
 	loaded_save.store_string(JSON.stringify(dict))
+	loaded_save.close()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,10 +44,13 @@ func goto_navigation(accuracy, map, new_high_score, show_performance):
 	
 	# These songs don't count
 	if map != "Gunjo Sanka" and map != "Capybara":
-		if accuracy >= 70 and !dict[map]:
-			dict[map] = true
+		# I'd like to do it backwards but since you can't really erase characters,
+		# and false is longer than true, then this guarentees it works unless you manually
+		# hack the save file to break.
+		if accuracy >= 70 and dict[map]:
+			dict[map] = false
 			crutches += 1
-			dict["crutch"] = crutches
+			dict["crutches"] = crutches
 			save()
 			
 

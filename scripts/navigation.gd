@@ -7,6 +7,7 @@ func _ready():
 	$Player/Song_Select.visible = false
 	if Global.unlocked_level2:
 		open_level2()
+	$Player/CrutchCount.text = "x"+str(Global.crutches)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,7 +46,7 @@ func _on_opponent_4_hitbox_body_entered(body):
 	$Player.can_move = false
 
 func _on_opponent_3_hitbox_body_entered(body):
-	song_name = "Daybreak Frontline"
+	song_name = "祝福(The Blessing)"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
 	$Player.can_move = false

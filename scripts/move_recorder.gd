@@ -1,14 +1,10 @@
 extends Node3D
 
-var map_folder = "Capybara"
-
-var bpm = 117
-#var time_between_notes = ((30.0)/bpm)/32.0
-var timer = 0
+var map_folder = "祝福(The Blessing)"
 
 var path = "res://maps/"+map_folder+"/"
 var song = path + "song.wav"
-var map = path + "map.json"
+var map = path + "easy.json"
 
 var lane1 = []
 var queued_input_lane_1 = 0
