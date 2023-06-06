@@ -9,6 +9,8 @@ var dict
 var save_path = "res://save_file.json"
 var crutches
 var loaded_save
+var music_position
+var music_player
 
 func load_save():
 	if not FileAccess.file_exists(save_path):
@@ -31,6 +33,12 @@ func _ready():
 	root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 	load_save()
+	# This is the route 1 theme from Pokemon Sun and Moon and its remakes.
+	music_player = AudioStreamPlayer.new()
+	music_player.stream = load("res://resources/bgm.wav")
+	music_player.autoplay = true
+	add_child(music_player)
+	music_player.play()
 
 func goto_navigation(accuracy, map, new_high_score, show_performance):
 	# This function will usually be called from a signal callback,
@@ -52,7 +60,7 @@ func goto_navigation(accuracy, map, new_high_score, show_performance):
 			crutches += 1
 			dict["crutches"] = crutches
 			save()
-			
+	music_player.play()		
 
 	call_deferred("_deferred_goto_navigation", accuracy, map, new_high_score, show_performance)
 
@@ -85,6 +93,7 @@ func goto_game(map):
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
 
+	music_player.stop()
 	call_deferred("_deferred_goto_game",map)
 
 func _deferred_goto_game(map):

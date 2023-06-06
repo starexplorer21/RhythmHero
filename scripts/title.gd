@@ -1,15 +1,12 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Difficulty.text = "Current Difficulty: " + Global.difficulty
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
 
 func _on_play_pressed():
 	Global.goto_navigation(0.0, "", false, false)
