@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ca72wm246wrqa"]
+[gd_scene load_steps=17 format=3 uid="uid://ca72wm246wrqa"]
 
 [ext_resource type="Script" path="res://scripts/tutorial_slides.gd" id="1_avcnn"]
 [ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="1_rkmw1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbk55fr2uidm1" path="res://resources/UI screen.png" id="3_focry"]
 [ext_resource type="Texture2D" uid="uid://68nupng0v8is" path="res://resources/RhythmGameScreen.png" id="4_dis83"]
 [ext_resource type="Texture2D" uid="uid://7v85hs0ynt62" path="res://resources/arrow.png" id="5_e4ici"]
+[ext_resource type="Texture2D" uid="uid://b0o600p0clcyw" path="res://resources/PerformanceScreen.png" id="6_kxur2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta4dw"]
 texture = ExtResource("1_rkmw1")
@@ -95,6 +96,9 @@ default_font = ExtResource("2_kwnrt")
 default_font = ExtResource("2_kwnrt")
 
 [sub_resource type="Theme" id="Theme_6n3xi"]
+default_font = ExtResource("2_kwnrt")
+
+[sub_resource type="Theme" id="Theme_t6vyb"]
 default_font = ExtResource("2_kwnrt")
 
 [node name="Tutorial_Slides" type="Control"]
@@ -338,7 +342,7 @@ offset_top = 39.0
 offset_right = -41.0
 offset_bottom = 59.0
 theme = SubResource("Theme_6n3xi")
-text = "Z"
+text = "Q"
 
 [node name="Lane2" type="Label" parent="Slide6"]
 layout_mode = 0
@@ -347,7 +351,7 @@ offset_top = 39.0
 offset_right = -10.0
 offset_bottom = 59.0
 theme = SubResource("Theme_6n3xi")
-text = "X"
+text = "W"
 horizontal_alignment = 1
 
 [node name="Lane3" type="Label" parent="Slide6"]
@@ -357,7 +361,7 @@ offset_top = 39.0
 offset_right = 20.0
 offset_bottom = 59.0
 theme = SubResource("Theme_6n3xi")
-text = "C"
+text = "O"
 
 [node name="Lane4" type="Label" parent="Slide6"]
 layout_mode = 0
@@ -366,7 +370,7 @@ offset_top = 39.0
 offset_right = 54.0
 offset_bottom = 59.0
 theme = SubResource("Theme_6n3xi")
-text = "V"
+text = "P"
 
 [node name="Slide7" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -375,6 +379,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Slide7"]
+layout_mode = 0
 offset_left = -194.0
 offset_top = -85.0
 offset_right = 192.0
@@ -390,24 +395,28 @@ scale = Vector2(0.174064, 0.182515)
 texture = ExtResource("4_dis83")
 
 [node name="ColorRect8" type="ColorRect" parent="Slide7"]
+layout_mode = 0
 offset_left = -103.0
 offset_top = -46.0
 offset_right = -101.0
 offset_bottom = -30.0
 
 [node name="ColorRect7" type="ColorRect" parent="Slide7"]
+layout_mode = 0
 offset_left = -89.0
 offset_top = -47.0
 offset_right = -87.0
 offset_bottom = -31.0
 
 [node name="ColorRect6" type="ColorRect" parent="Slide7"]
+layout_mode = 0
 offset_left = -103.0
 offset_top = -32.0
 offset_right = -87.0
 offset_bottom = -30.0
 
 [node name="ColorRect5" type="ColorRect" parent="Slide7"]
+layout_mode = 0
 offset_left = -103.0
 offset_top = -47.0
 offset_right = -87.0
@@ -415,12 +424,60 @@ offset_bottom = -45.0
 
 [node name="Slide8" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 54.0
+
+[node name="Label" type="Label" parent="Slide8"]
+layout_mode = 0
+offset_left = -139.0
+offset_top = -95.0
+offset_right = 152.0
+offset_bottom = -55.0
+theme = SubResource("Theme_t6vyb")
+text = "After you complete the map, you'll be
+judged on a scale from S to F."
+horizontal_alignment = 1
+
+[node name="PerformanceScreen" type="Sprite2D" parent="Slide8"]
+position = Vector2(-6, 9)
+scale = Vector2(0.18932, 0.183775)
+texture = ExtResource("6_kxur2")
+
+[node name="Slide9" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Slide8"]
+[node name="Label" type="Label" parent="Slide9"]
+layout_mode = 0
+offset_left = -159.0
+offset_top = -89.0
+offset_right = 163.0
+offset_bottom = -29.0
+theme = SubResource("Theme_t6vyb")
+text = "You must collect at least a grade of 
+D in order to pass the map and collect the
+crutch"
+horizontal_alignment = 1
+
+[node name="PerformanceScreen" type="Sprite2D" parent="Slide9"]
+position = Vector2(-2, 24)
+scale = Vector2(0.18932, 0.183775)
+texture = ExtResource("6_kxur2")
+
+[node name="Slide10" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Slide10"]
 layout_mode = 0
 offset_left = -147.0
 offset_top = -26.0
@@ -430,6 +487,16 @@ theme = SubResource("Theme_oq37x")
 text = "Now go forth, collect all 12 crutches,
 and become the TRUE Rhythm Hero"
 horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = -165.0
+offset_top = 68.0
+offset_right = 355.0
+offset_bottom = 588.0
+scale = Vector2(0.0293242, 0.0300451)
+disabled = true
+icon = ExtResource("5_e4ici")
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
@@ -442,15 +509,5 @@ scale = Vector2(0.0293242, 0.0300451)
 disabled = true
 icon = ExtResource("5_e4ici")
 
-[node name="Back" type="Button" parent="."]
-layout_mode = 0
-offset_left = -165.0
-offset_top = 68.0
-offset_right = 355.0
-offset_bottom = 588.0
-scale = Vector2(0.0293242, 0.0300451)
-disabled = true
-icon = ExtResource("5_e4ici")
-
-[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

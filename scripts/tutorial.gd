@@ -1,5 +1,6 @@
 extends Node2D
 
+var song_name
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,3 +39,24 @@ func _on_continue_pressed():
 
 func _on_quit_pressed():
 	Global.goto_title()
+	Global.goto_title()
+
+func _on_opponent_hitbox_body_entered(body):
+	song_name = "Gunjo Sanka"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
+	$Player.can_move = false
+
+func _on_song_select_closed():
+	$Player/Song_Select.visible = false
+	$Player.can_move = true
+	
+func _on_song_select_play():
+	Global.goto_game(song_name)
+
+
+func _on_secret_hitbox_body_entered(body):
+	song_name = "Capybara"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
+	$Player.can_move = false

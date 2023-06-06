@@ -36,3 +36,15 @@ func show_performance(accuracy, new_high_score, song):
 	$High_score.visible = new_high_score
 	$Score.text = "Accuracy:" + str(accuracy) + "%"
 	load_assets(song)
+	if accuracy >= 95:
+		$Grade.text = "S"
+	elif accuracy >= 90:
+		$Grade.text = "A"
+	elif accuracy >= 85:
+		$Grade.text = "B"
+	elif accuracy >= 80:
+		$Grade.text = "C"
+	elif accuracy >= 70:
+		$Grade.text = "D"
+	else:
+		$Grade.text = "F"

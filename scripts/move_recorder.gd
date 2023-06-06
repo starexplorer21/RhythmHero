@@ -1,6 +1,6 @@
 extends Node3D
 
-var map_folder = "What's Up Pop"
+var map_folder = "Capybara"
 
 var bpm = 117
 #var time_between_notes = ((30.0)/bpm)/32.0

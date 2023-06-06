@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2n8a74yql4da"]
+[gd_scene load_steps=19 format=3 uid="uid://c2n8a74yql4da"]
 
 [ext_resource type="Script" path="res://scripts/navigation.gd" id="1_jytd7"]
 [ext_resource type="TileSet" uid="uid://bg5fmhpehndtv" path="res://resources/navigation.tres" id="2_dp7f3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://l0s68gsq4h71" path="res://assets/player.tscn" id="8_si8oj"]
 [ext_resource type="PackedScene" uid="uid://dlwelwlwtckah" path="res://assets/song_select.tscn" id="10_2mdqo"]
 [ext_resource type="Texture2D" uid="uid://dciylkau8g62n" path="res://resources/pause.png" id="11_ahcot"]
+[ext_resource type="Texture2D" uid="uid://c8ohi1utl6rbi" path="res://resources/crutch.png" id="11_sjqwi"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="12_xo1bk"]
 [ext_resource type="PackedScene" uid="uid://bfasckp2alsid" path="res://assets/performance.tscn" id="13_viabb"]
 
@@ -232,6 +233,9 @@ size = Vector2(32.5111, 8.70744)
 [sub_resource type="Theme" id="Theme_qc0pf"]
 default_font = ExtResource("12_xo1bk")
 
+[sub_resource type="Theme" id="Theme_ssqmv"]
+default_font = ExtResource("12_xo1bk")
+
 [node name="Navigation" type="Node2D"]
 script = ExtResource("1_jytd7")
 
@@ -373,6 +377,31 @@ position = Vector2(-4.474, -0.713745)
 scale = Vector2(0.405766, 1.84671)
 shape = SubResource("RectangleShape2D_tfghv")
 
+[node name="Opponent11" parent="." instance=ExtResource("8_2lm2k")]
+position = Vector2(1855, 13)
+
+[node name="Opponent11Hitbox" type="Area2D" parent="Opponent11"]
+rotation = 1.5708
+scale = Vector2(0.768968, 0.773656)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Opponent11/Opponent11Hitbox"]
+position = Vector2(29.5928, -0.914719)
+scale = Vector2(0.405766, 1.84671)
+shape = SubResource("RectangleShape2D_tfghv")
+
+[node name="Opponent12" parent="." instance=ExtResource("8_2lm2k")]
+position = Vector2(1855, 224)
+direction = 4
+
+[node name="Opponent12Hitbox" type="Area2D" parent="Opponent12"]
+rotation = 1.5708
+scale = Vector2(0.768968, 0.773656)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Opponent12/Opponent12Hitbox"]
+position = Vector2(-4.474, -0.713745)
+scale = Vector2(0.405766, 1.84671)
+shape = SubResource("RectangleShape2D_tfghv")
+
 [node name="Player" parent="." instance=ExtResource("8_si8oj")]
 position = Vector2(161, 119)
 
@@ -430,6 +459,18 @@ offset_right = 1.0
 offset_bottom = 13.0
 scale = Vector2(0.730273, 0.764252)
 
+[node name="Crutch" type="Sprite2D" parent="Player"]
+position = Vector2(-137, 76)
+texture = ExtResource("11_sjqwi")
+
+[node name="CrutchCount" type="Label" parent="Player"]
+offset_left = -134.0
+offset_top = 76.0
+offset_right = -82.0
+offset_bottom = 169.0
+theme = SubResource("Theme_ssqmv")
+text = "x0"
+
 [connection signal="body_entered" from="Opponent1/Opponent1Hitbox" to="." method="_on_opponent_1_hitbox_body_entered"]
 [connection signal="body_entered" from="Opponent2/Opponent2Hitbox" to="." method="_on_opponent_2_hitbox_body_entered"]
 [connection signal="body_entered" from="Opponent3/Opponent3Hitbox" to="." method="_on_opponent_3_hitbox_body_entered"]
@@ -440,6 +481,8 @@ scale = Vector2(0.730273, 0.764252)
 [connection signal="body_entered" from="Opponent8/Opponent8Hitbox" to="." method="_on_opponent_8_hitbox_body_entered"]
 [connection signal="body_entered" from="Opponent9/Opponent9Hitbox" to="." method="_on_opponent_9_hitbox_body_entered"]
 [connection signal="body_entered" from="Opponent10/Opponent10Hitbox" to="." method="_on_opponent_10_hitbox_body_entered"]
+[connection signal="body_entered" from="Opponent11/Opponent11Hitbox" to="." method="_on_opponent_11_hitbox_body_entered"]
+[connection signal="body_entered" from="Opponent12/Opponent12Hitbox" to="." method="_on_opponent_12_hitbox_body_entered"]
 [connection signal="closed" from="Player/Song_Select" to="." method="_on_song_select_closed"]
 [connection signal="play" from="Player/Song_Select" to="." method="_on_song_select_play"]
 [connection signal="pressed" from="Player/Pause" to="." method="_on_pause_pressed"]

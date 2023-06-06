@@ -77,8 +77,21 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.643137, 0.643137, 0.643137, 1)
 text = "PLAY"
 
+[node name="Tutorial" type="Button" parent="."]
+texture_filter = 1
+offset_left = 2399.98
+offset_top = 3925.04
+offset_right = 8464.98
+offset_bottom = 5775.04
+scale = Vector2(0.817094, 0.820816)
+theme = SubResource("Theme_40wv0")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.643137, 0.643137, 0.643137, 1)
+text = "TUTORIAL"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(4841.63, 4037.54)
 
 [connection signal="pressed" from="Change_Difficulty" to="." method="_on_change_difficulty_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]

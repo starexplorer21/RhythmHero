@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5pmwvolute45"]
+[gd_scene load_steps=19 format=3 uid="uid://5pmwvolute45"]
 
 [ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_c5wy7"]
 [ext_resource type="TileSet" uid="uid://bg5fmhpehndtv" path="res://resources/navigation.tres" id="1_okaew"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b85p1dm3pv1y1" path="res://resources/Mystic Woods Asset Pack/tilesets/plains.png" id="3_i3nyw"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="4_5t11f"]
 [ext_resource type="PackedScene" uid="uid://ca72wm246wrqa" path="res://assets/tutorial_slides.tscn" id="6_lfr6e"]
+[ext_resource type="PackedScene" uid="uid://dlwelwlwtckah" path="res://assets/song_select.tscn" id="9_ayki0"]
+[ext_resource type="PackedScene" uid="uid://bbty0kdtgcfo4" path="res://assets/opponent.tscn" id="9_fbfhv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2qdd5"]
 texture = ExtResource("2_yut54")
@@ -228,6 +230,12 @@ default_font = ExtResource("4_5t11f")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38mmq"]
 size = Vector2(2.5, 26)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfam4"]
+size = Vector2(20, 17.6049)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt7om"]
+size = Vector2(32.5111, 8.70744)
+
 [sub_resource type="Theme" id="Theme_kety7"]
 default_font = ExtResource("4_5t11f")
 
@@ -265,6 +273,32 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="show_tutorial"]
 position = Vector2(349, 15)
 shape = SubResource("RectangleShape2D_38mmq")
+
+[node name="Opponent" parent="." instance=ExtResource("9_fbfhv")]
+position = Vector2(469, 5)
+direction = 2
+
+[node name="OpponentHitbox" type="Area2D" parent="Opponent"]
+rotation = 1.5708
+scale = Vector2(0.768968, 0.773656)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Opponent/OpponentHitbox"]
+position = Vector2(12.3543, 16.5845)
+rotation = 1.5708
+scale = Vector2(0.405766, 1.84671)
+shape = SubResource("RectangleShape2D_dfam4")
+
+[node name="Secret" parent="." instance=ExtResource("9_fbfhv")]
+position = Vector2(-8, 8)
+direction = 3
+
+[node name="SecretHitbox" type="Area2D" parent="Secret"]
+rotation = 1.5708
+scale = Vector2(0.768968, 0.773656)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Secret/SecretHitbox"]
+position = Vector2(11.0537, -21.4976)
+shape = SubResource("RectangleShape2D_vt7om")
 
 [node name="Player" parent="." instance=ExtResource("2_426v4")]
 position = Vector2(194, 4)
@@ -311,8 +345,25 @@ offset_right = -1.0
 offset_bottom = 10.0
 scale = Vector2(0.681155, 0.698465)
 
+[node name="Song_Select" parent="Player" instance=ExtResource("9_ayki0")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1.0
+offset_top = 11.0
+offset_right = -1.0
+offset_bottom = 11.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.719998, 0.72)
+
 [connection signal="body_entered" from="show_tutorial" to="." method="_on_show_tutorial_body_entered"]
+[connection signal="body_entered" from="Opponent/OpponentHitbox" to="." method="_on_opponent_hitbox_body_entered"]
+[connection signal="body_entered" from="Secret/SecretHitbox" to="." method="_on_secret_hitbox_body_entered"]
 [connection signal="pressed" from="Player/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Player/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Player/Quit" to="." method="_on_quit_pressed"]
 [connection signal="finished" from="Player/Tutorial_Slides" to="." method="_on_tutorial_slides_finished"]
+[connection signal="closed" from="Player/Song_Select" to="." method="_on_song_select_closed"]
+[connection signal="play" from="Player/Song_Select" to="." method="_on_song_select_play"]

@@ -23,8 +23,11 @@ func open_level2():
 	$TileMap2.set_cell(0, Vector2i(57, 5), 5, Vector2i(0,2))
 	$TileMap2.set_cell(0, Vector2i(57, 10), 5, Vector2i(0,0))
 	
+	
+# These are all the level detectors. They're out of order because I didn't 
+# have the time or effort to put them in order
 func _on_opponent_1_hitbox_body_entered(body):
-	song_name = "Awake Now"
+	song_name = "Butter"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
 	$Player.can_move = false
@@ -78,7 +81,19 @@ func _on_opponent_9_hitbox_body_entered(body):
 	$Player.can_move = false
 
 func _on_opponent_10_hitbox_body_entered(body):
-	song_name = "Whats Up Pop"
+	song_name = "What's Up Pop"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
+	$Player.can_move = false
+
+func _on_opponent_11_hitbox_body_entered(body):
+	song_name = "Daybreak Frontline"
+	$Player/Song_Select.load_assets(song_name)
+	$Player/Song_Select.visible = true
+	$Player.can_move = false
+
+func _on_opponent_12_hitbox_body_entered(body):
+	song_name = "Awake Now"
 	$Player/Song_Select.load_assets(song_name)
 	$Player/Song_Select.visible = true
 	$Player.can_move = false
@@ -107,7 +122,6 @@ func _on_continue_pressed():
 	$Player/Continue.disabled = true
 	$Player/Quit.disabled = true
 
-
 func _on_quit_pressed():
 	Global.goto_title()
 
@@ -119,6 +133,12 @@ func show_performance(accuracy, map, new_high_score):
 	$Player/Performance.visible = true
 	$Player.can_move = false
 	$Player/Performance.show_performance(accuracy, new_high_score, map)
+
+
+
+
+
+
 
 
 

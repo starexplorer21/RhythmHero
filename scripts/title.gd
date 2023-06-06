@@ -22,3 +22,7 @@ func _on_change_difficulty_pressed():
 		Global.difficulty = "Normal"
 	$Difficulty.text = "Current Difficulty: " + Global.difficulty
 	
+
+
+func _on_tutorial_pressed():
+	Global.goto_tutorial()

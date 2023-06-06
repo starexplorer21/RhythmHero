@@ -113,10 +113,41 @@ func play_hit(judge):
 	$Control/Combo.text = str(combo)
 	for i in range(5):
 		judge.modulate.a += 0.2
-		await get_tree().create_timer(0.01).timeout
+		await get_tree().create_timer(0.03).timeout
 	for i in range(5):
 		judge.modulate.a -= 0.2
-		await get_tree().create_timer(0.01).timeout
+		await get_tree().create_timer(0.03).timeout
+
+func hit_effect(lane):
+	var node_path = "LaneEffect" + str(lane)
+	var mesh1 = get_node(node_path + "/Part1")
+	var mesh2 = get_node(node_path + "/Part2")
+	for i in range(5):
+		mesh1.transparency -= 0.2
+		mesh2.transparency -= 0.2
+		await get_tree().create_timer(0.03).timeout
+	for i in range(5):
+		mesh1.transparency += 0.2
+		mesh2.transparency += 0.2
+		await get_tree().create_timer(0.03).timeout
+		
+func hold_on(lane):
+	var node_path = "LaneEffect" + str(lane)
+	var mesh1 = get_node(node_path + "/Part1")
+	var mesh2 = get_node(node_path + "/Part2")
+	for i in range(5):
+		mesh1.transparency -= 0.2
+		mesh2.transparency -= 0.2
+		await get_tree().create_timer(0.03).timeout
+	
+func hold_off(lane):
+	var node_path = "LaneEffect" + str(lane)
+	var mesh1 = get_node(node_path + "/Part1")
+	var mesh2 = get_node(node_path + "/Part2")
+	for i in range(5):
+		mesh1.transparency += 0.2
+		mesh2.transparency += 0.2
+		await get_tree().create_timer(0.03).timeout
 
 func reset_all():
 	perfect.modulate.a = 0
@@ -171,7 +202,7 @@ func load_row():
 				await get_tree().create_timer(1.3).timeout
 				music_player.stop()
 				var score = (perfects * 5.0) + (greats * 4.0) + (goods * 3.0)
-				var accuracy = int((score/total_score) * 100)
+				var accuracy = int(round((score/total_score) * 100))
 				var show_high_score = false
 				if high_score < accuracy:
 					meta_dict["high_score"] = accuracy
@@ -220,15 +251,18 @@ func judge_lane(l):
 			hitsound_player.play()
 			if lane[lane_pointer].get_type() == "hold_start":
 				lane_is_held = true
+				hold_on(l)
 			else:
 				# We don't pop out the hold note if we're holding
 				lane.pop_back()
+				hit_effect(l)
 				
 		elif Input.is_action_just_released(laneHit) && lane_is_held:
 			calc_judge(lane[lane_pointer].get_judge())
 			# More defensive code to prevent crashing
 			if lane[lane_pointer].get_type() != "normal":
 				lane[lane_pointer].release()
+				hold_off(l)
 			lane.pop_back()
 			lane_is_held = false
 			
