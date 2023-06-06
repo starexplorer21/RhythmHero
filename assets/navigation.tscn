@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dciylkau8g62n" path="res://resources/pause.png" id="11_ahcot"]
 [ext_resource type="Texture2D" uid="uid://c8ohi1utl6rbi" path="res://resources/crutch.png" id="11_sjqwi"]
 [ext_resource type="FontFile" uid="uid://dmoucmi1lms54" path="res://resources/PixelGameFont.ttf" id="12_xo1bk"]
-[ext_resource type="PackedScene" uid="uid://bfasckp2alsid" path="res://assets/performance.tscn" id="13_viabb"]
+[ext_resource type="PackedScene" path="res://assets/performance.tscn" id="13_viabb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfjjt"]
 texture = ExtResource("2_vh4dn")
